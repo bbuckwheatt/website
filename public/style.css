@@ -1,0 +1,51 @@
+/* style.css */
+
+body {
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark grey text */
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: #1a1a1a; /* Dark header background */
+    color: #ffffff; /* White text */
+    padding: 1rem;
+  }
+  
+  header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Distribute nav items evenly */
+  }
+  
+  header nav ul li a {
+    color: #ffffff; /* White text for links */
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+  
+  header nav ul li a:hover {
+    color: #04b4e0; /* Highlight color for link hover */
+  }
+  
+/* style.css */
+
+@media (max-width: 768px) {
+    header nav ul {
+      flex-direction: column;
+    }
+  
+    header nav ul li {
+      margin-bottom: 0.5rem;
+    }
+  
+    /* Other responsive styles */
+  }
+  
+
+
+  /* Additional styles for other elements */
+  
+
+  

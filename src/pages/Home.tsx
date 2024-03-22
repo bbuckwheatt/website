@@ -1,16 +1,17 @@
 // src/components/Home.tsx
 import React from 'react';
+import profileImage from './selfie.JPG';
 
 const Home: React.FC = () => {
-  return (
-    <div>
-      <section className="hero">
-        <h1>Welcome to My Website, DUKE!</h1>
-        <p>I'm Cameron Powell, a Full-Stack Developer</p>
-      </section>
-      {/* Add other sections here */}
-    </div>
-  );
-};
+    return (
+      <div className="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <img src={profileImage} alt="Cameron Powell" className="profile-image" />
+        {/* If you imported the image, use profileImage as the src */}
+        {/* <img src={profileImage} alt="Your Name" className="profile-image" /> */}
+        <p>Here's a little about myself.</p>
+      </div>
+    );
+  };
 
 export default Home;

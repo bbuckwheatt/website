@@ -3,15 +3,17 @@
 /* Theme Constants */
 :root {
   /*Text*/
-  --THEME_COLOR_1: #293241;
+  --THEME_COLOR_1: #393D3F;
   /*Background*/
-  --THEME_COLOR_2: #98c1d9;
+  --THEME_COLOR_2: #62929E;
   /*Header*/
-  --THEME_COLOR_3: #ee6c4d;
+  --THEME_COLOR_3: #546A7B;
   /*Hero, about, projects*/
-  --THEME_COLOR_4: #e0fbfc;
+  --THEME_COLOR_4: #C6C5B9;
   /*footer*/
-  --THEME_COLOR_5: #3d5a80;
+  --THEME_COLOR_5: #393D3F;
+  /*Footer Text*/
+  --FOOTER_TEXT: #fff;
 }
 
 /* General Styles */
@@ -171,7 +173,7 @@ body, html {
 }
 
 .project:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 .project-image {
@@ -192,7 +194,7 @@ body, html {
 
 .project a:hover {
   background-color: #333;
-  color: #fff;
+  color: #ffffff;
 }
 
 /* Responsive Design for Projects */
@@ -215,7 +217,7 @@ body, html {
 }
 
 .site-footer a {
-  color: #fff; /* White text for links */
+  color: var(--FOOTER_TEXT); /* White text for links */
   margin: 0 15px;
   text-decoration: none;
 }

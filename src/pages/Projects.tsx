@@ -1,5 +1,6 @@
 // src/components/Projects.tsx
 import React from 'react';
+import animatorPic from './animator.png';
 
 // Define a type for the project object
 type Project = {
@@ -17,7 +18,7 @@ const projects: Project[] = [
     id: 1,
     title: 'Stop Motion Animator',
     description: 'Proposed, developed, and implemented a fully functional stop-motion animation studio in the open-source remote collaboration tool, Covey.Town, utilizing React, TypeScript, and the Agile development system.',
-    imageUrl: '../photos/animator.png',
+    imageUrl: animatorPic,
     liveUrl: 'https://stop-motion-studio-hyvi.onrender.com',
     repoUrl: 'https://github.com/neu-cs4530/covey-town-project-team-603',
   },

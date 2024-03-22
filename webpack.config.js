@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.tsx', // Your entry point, assuming your main file is located at src/index.tsx
+  entry: './src/index.tsx', // entry point, assuming main file is located at src/index.tsx
   output: {
     path: path.join(__dirname, '/dist'), // Output directory
     filename: 'bundle.js', // Output file
@@ -26,17 +26,29 @@ module.exports = {
         test: /\.css$/, // Use style-loader and css-loader for CSS files
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i, // Regex to match image files
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images', // Where to put images
+              name: '[name].[ext]', // Keep the original file name and extension
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', // Path to your HTML file
+      template: './public/index.html', // Path to HTML file
     }),
   ],
   devServer: {
     static: path.join(__dirname, 'public'),
     compress: true,
-    port: 3000, // You can specify the port here
-    historyApiFallback: true, // Add this line
+    port: 3000, // specify the port here
+    historyApiFallback: true,
   },
 };

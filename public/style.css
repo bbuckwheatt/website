@@ -35,7 +35,7 @@ body, html {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: space-around; /* Distribute nav items evenly */
+    justify-content: ; /* Distribute nav items evenly */
   }
   
   header nav ul li a {
@@ -61,33 +61,66 @@ body, html {
   
     /* Other responsive styles */
   }
+
+
   /* Home */
+
+
   /* Hero Section */
 .hero {
-  text-align: center;
-  padding: 4rem 0;
-  background-color: var(--THEME_COLOR_4);
+  text-align: left;
+  padding: rem 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 0rem;
+  /* background-color: var(--THEME_COLOR_4); */
+
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 4rem;
   margin-bottom: 0.5rem;
+  margin-left: 0rem;
+
 }
+/* .hero h2 {
+  font-size: 4rem;
+  max-width: 50%;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  margin-left: 0rem;
+
+} */
 
 .hero p {
   font-size: 1.2rem;
   color: #666;
+  margin-left: 4px;
 }
 
+.profile-image {
+  width: 800px; /* Set width */
+  height: auto; /* Maintain aspect ratio */
+  border: 0px solid var(--THEME_COLOR_1); /* Solid border */
+  border-radius: 0%; /* Circular image */
+  margin-left: 0px;
+  transition: transform 0.5s ease; /* Smooth transition for transform */
+}
+
+.profile-image:hover {
+   transform: scale(1.005); /*Scale up to 110% of the original size on hover */
+}
+
+
 /* Portfolio Section */
-.portfolio {
+/* .portfolio {
   padding: 2rem 0;
 }
 
 .portfolio h2 {
   text-align: center;
   margin-bottom: 1rem;
-}
+} */
 
 .project {
   margin-bottom: 1rem;
@@ -96,8 +129,9 @@ body, html {
 /* About Section */
 .about {
   background-color: var(--THEME_COLOR_4);
-  padding: 2rem;
-  margin-top: 1rem;
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 /* Skills Section */
@@ -154,6 +188,7 @@ body, html {
   background-color: var(--THEME_COLOR_4);
   padding: 2rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .project-list {
@@ -173,11 +208,11 @@ body, html {
 }
 
 .project:hover {
-  transform: translateY(-10px);
+  transform: scale(1.1);
 }
 
 .project-image {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
   border-radius: 4px;
 }
@@ -210,10 +245,18 @@ body, html {
   background-color: var(--THEME_COLOR_5); /* Dark background */
   color: #fff; /* White text */
   text-align: center;
-  padding: 1rem 0;
+  padding: 10px 20px;
+  height: 10px;
   position: fixed;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
   bottom: 0;
+  left: 0;
   width: 100%;
+}
+
+.site-footer:hover {
+  background-color: #333; /* Darken the background on hover */
+  height: 20px; /* Increase height on hover */
 }
 
 .site-footer a {
@@ -224,4 +267,44 @@ body, html {
 
 .site-footer a:hover {
   text-decoration: underline;
+}
+
+
+
+/* Home temp */
+.home-container {
+  text-align: right;
+  padding: 20px;
+}
+
+.header h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.profile-picture img {
+  max-width: 800px; /* Adjust based on your preference */
+  height: auto;
+  border-radius: 10px; /* Optional, for rounded corners */
+}
+
+.description {
+  max-width: 50%;
+  text-align: left;
+  background-color: var(--THEME_COLOR_4);
+}
+
+.experience {
+  margin-top: 20px;
+  text-align: left;
+}
+
+hr {
+  margin-top: 20px;
 }

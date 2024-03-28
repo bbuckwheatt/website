@@ -3,15 +3,15 @@
 /* Theme Constants */
 :root {
   /*Text*/
-  --THEME_COLOR_1: #393D3F;
+  --THEME_COLOR_1: #252422;
   /*Background*/
-  --THEME_COLOR_2: #62929E;
+  --THEME_COLOR_2: #FFFCF2;
   /*Header*/
-  --THEME_COLOR_3: #546A7B;
+  --THEME_COLOR_3: #EB5E28;
   /*Hero, about, projects*/
-  --THEME_COLOR_4: #C6C5B9;
+  --THEME_COLOR_4: #CCC5B9;
   /*footer*/
-  --THEME_COLOR_5: #393D3F;
+  --THEME_COLOR_5: #403D39;
   /*Footer Text*/
   --FOOTER_TEXT: #fff;
 }
@@ -70,7 +70,7 @@ body, html {
 .hero {
   text-align: left;
   padding: rem 0;
-  margin-top: 2rem;
+  margin-top: ;
   margin-bottom: 2rem;
   margin-left: 0rem;
   /* background-color: var(--THEME_COLOR_4); */
@@ -83,33 +83,33 @@ body, html {
   margin-left: 0rem;
 
 }
-/* .hero h2 {
-  font-size: 4rem;
-  max-width: 50%;
+.hero h2 {
+  font-size: 2rem;
+  max-width:;
   text-align: left;
   margin-bottom: 0.5rem;
   margin-left: 0rem;
 
-} */
+}
 
 .hero p {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--THEME_COLOR_1);
   margin-left: 4px;
 }
 
-.profile-image {
-  width: 800px; /* Set width */
-  height: auto; /* Maintain aspect ratio */
-  border: 0px solid var(--THEME_COLOR_1); /* Solid border */
-  border-radius: 0%; /* Circular image */
-  margin-left: 0px;
-  transition: transform 0.5s ease; /* Smooth transition for transform */
-}
+/* .profile-image { */
+  /* width: ; Set width */
+  /* height: auto; Maintain aspect ratio */
+  /* border: 0px solid var(--THEME_COLOR_1); Solid border */
+  /* border-radius: 0%; Circular image */
+  /* margin-left: 0px;
+  /* transition: transform 0.5s ease; Smooth transition for transform */
+/* } */
 
-.profile-image:hover {
-   transform: scale(1.005); /*Scale up to 110% of the original size on hover */
-}
+/* .profile-image:hover { */
+   /* transform: scale(1.005); Scale up to 110% of the original size on hover */
+/* } */
 
 
 /* Portfolio Section */
@@ -135,7 +135,7 @@ body, html {
 }
 
 /* Skills Section */
-.skills {
+/* .skills {
   padding: 2rem 0;
 }
 
@@ -150,21 +150,21 @@ body, html {
   padding: 0.5rem 1rem;
   background-color: #ddd;
   border-radius: 2px;
-}
+} */
 
 /* Contact Section */
-.contact {
+/* .contact {
   background-color: #333;
   color: #fff;
   padding: 2rem;
   text-align: center;
-}
+} */
 
-.contact a {
+/* .contact a {
   color: #04b4e0;
   text-decoration: none;
   font-weight: bold;
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -188,7 +188,7 @@ body, html {
   background-color: var(--THEME_COLOR_4);
   padding: 2rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: ;
 }
 
 .project-list {
@@ -245,9 +245,9 @@ body, html {
   background-color: var(--THEME_COLOR_5); /* Dark background */
   color: #fff; /* White text */
   text-align: center;
-  padding: 10px 20px;
+  padding: 3rem;
   height: 10px;
-  position: fixed;
+  position: ; /*figure out how to make it stick to the bottom */
   transition: all 0.3s ease; /* Smooth transition for all properties */
   bottom: 0;
   left: 0;
@@ -275,6 +275,7 @@ body, html {
 .home-container {
   text-align: right;
   padding: 20px;
+  background-color:;
 }
 
 .header h1 {
@@ -285,26 +286,53 @@ body, html {
 .content {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: ;
 }
 
 .profile-picture img {
-  max-width: 800px; /* Adjust based on your preference */
+  max-width: 100%; /* Adjust based on your preference */
   height: auto;
   border-radius: 10px; /* Optional, for rounded corners */
+  transition: transform 0.5s ease; /*Smooth transition for transform */
+}
+
+.profile-picture img:hover {
+   transform: scale(1.005); /*Scale up to 110% of the original size on hover */
 }
 
 .description {
   max-width: 50%;
   text-align: left;
-  background-color: var(--THEME_COLOR_4);
+  margin-left: 1rem;
+  /* background-color: white;
+  border-radius: 10px; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.location {
+  max-width: 50%;
+  margin-top: ;
+  text-align: left;
 }
 
 .experience {
-  margin-top: 20px;
+  margin-top: ;
+  text-align: left;
+}
+
+.mission {
+  margin-top:;
+  text-align: left;
+}
+
+.hobbies {
+  margin-top: ;
   text-align: left;
 }
 
 hr {
   margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
 }

@@ -1,6 +1,6 @@
 // src/components/Projects.tsx
 import React from 'react';
-import animatorPic from './animator.png';
+import animatorPic from './images-projects/animator.png';
 
 // Define a type for the project object
 type Project = {
@@ -16,6 +16,14 @@ type Project = {
 const projects: Project[] = [
   {
     id: 1,
+    title: 'This Website',
+    description: 'Proposed, developed, and implemented a fully functional stop-motion animation studio in the open-source remote collaboration tool, Covey.Town, utilizing React, TypeScript, and the Agile development system.',
+    imageUrl: '/path-to-your-image.jpg',
+    liveUrl: '',
+    repoUrl: 'https://github.com/bbuckwheatt/website',
+  },
+  {
+    id: 2,
     title: 'Stop Motion Animator',
     description: 'Proposed, developed, and implemented a fully functional stop-motion animation studio in the open-source remote collaboration tool, Covey.Town, utilizing React, TypeScript, and the Agile development system.',
     imageUrl: animatorPic,
@@ -23,7 +31,7 @@ const projects: Project[] = [
     repoUrl: 'https://github.com/neu-cs4530/covey-town-project-team-603',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Photo Editor App',
     description: 'This is a brief description of Project One.',
     imageUrl: '/path-to-your-image.jpg',
@@ -32,7 +40,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 3,
+    id: 4,
     title: 'Tic Tac Toe Game',
     description: 'This is a brief description of Project One.',
     imageUrl: '/path-to-your-image.jpg',
@@ -41,7 +49,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: 'New York City Property Price Estimator',
     description: 'This is a brief description of Project One.',
     imageUrl: '/path-to-your-image.jpg',

@@ -4,8 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.tsx', // entry point, assuming main file is located at src/index.tsx
   output: {
+    publicPath: '/', // Specify the base path for all the assets within your application.
     path: path.join(__dirname, '/dist'), // Output directory
     filename: 'bundle.js', // Output file
+    publicPath: '/', // Specify the base path for all the assets within your application.
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'], // Resolve these file types
@@ -48,7 +50,7 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, 'public'),
     compress: true,
-    port: 3000, // specify the port here
+    port: 8000, // specify the port here
     historyApiFallback: true,
   },
 };

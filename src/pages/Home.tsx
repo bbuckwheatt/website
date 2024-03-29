@@ -1,6 +1,7 @@
 // src/components/Home.tsx
 // import React from 'react';
 import profileImage from './images-home/selfie.JPG';
+import Image from './images-home/me.JPG';
 
 // const Home: React.FC = () => {
 //     return (
@@ -35,17 +36,14 @@ const Home: React.FC = () => {
         <div className="description">
           <h1>My Story</h1>
           <p>
-          My name is Cameron Powell, and I recently graduated from Northeastern University
-           where I studied Computer Science and Business Administration with a concentration
-            in Fintech. I graduated from St. John's Preparatory School in 2019, where I 
-            received my high school education. From high school, I went on to study abroad
-             in Rome at John Cabot University for my first semester of college through 
-             Northeastern's N.U.in program. In December of 2023, I completed all of my coursework
-              for my undergraduate studies at Northeastern and will attend my official graduation
-               in May 2024. For my two co-ops at Northeastern, I worked at Enel X North America, 
-               first as a Demand Response Support Analyst intern for six months in 2021, and then 
-               as an Energy Markets Business Analyst intern for eight months in 2022. I am currently
-                looking for a full-time work opportunity, and I am excited to see what the future has in store for me!
+            My name is Cameron Powell, and I recently graduated from Northeastern University
+            where I studied Computer Science and Business Administration with a concentration
+            in Fintech.
+          </p>
+          <p> Outside of school and work I play video games and tabletop RPGs, care for my cat Meatball, code for fun on side projects, and love to cook.</p>
+          <p>
+            I am currently living in Boston, Massachusetts, and I am looking for a full-time opportunity to work as a software engineer.
+            Feel free to browse my website to learn about me, what I like to do, and what I have accomplished so far.
           </p>
           <Link to="/about">Learn More About Me</Link>
         </div>
@@ -55,7 +53,7 @@ const Home: React.FC = () => {
         <div className="mission">
           <h1>My Mission</h1>
           <p>
-            code
+            In my life, I strive to be the best version of myself that I can be. I am constantly learning and improving myself, and I am always looking for new opportunities to grow and develop my skills. I am passionate about technology and finance, and I am excited to see where my career takes me in the future. I am dedicated to making a positive impact on the world and helping others achieve their goals. I believe that with hard work, determination, and a positive attitude, anything is possible.
           </p>
         </div>
       </div>
@@ -64,7 +62,9 @@ const Home: React.FC = () => {
         <div className="experience">
           <h1>My Experience</h1>
           <p>
-            Here you can detail your experience, achievements, and anything relevant to your professional or academic background.
+            Over the course of my time at Northeastern, I had the opportunity to earn nearly 2 years of professional work experience through 2 separate co-ops, working at Enel X North America most notably as an Energy Markets Business Analyst intern. 
+            These experiences allowed me to gain valuable skills in database management, coding, data analysis, project management, and business strategy. I also had the opportunity to work on a variety of projects individually and through my coursework,
+             including developing a stop-motion animation studio in Covey.Town and creating a full-fledged photo editor app in Java. I am excited to continue to learn and grow as a software engineer, and am eager to take my talents somewhere where I can make a real impact.
           </p>
           <Link to="/projects">View My Projects</Link>
         </div>
@@ -76,7 +76,11 @@ const Home: React.FC = () => {
           <p>
             code
           </p>
-          <Link to="/gallery">View My Gallery</Link>
+          
+          <Link to="/hobbies">Learn What I Do For Fun!</Link>
+        </div>
+        <div className="home-picture">
+          <img src={Image} alt="Cameron Powell" />
         </div>
       </div>
     </div>

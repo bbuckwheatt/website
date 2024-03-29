@@ -1,6 +1,9 @@
 // src/components/Projects.tsx
 import React from 'react';
 import animatorPic from './images-projects/animator.png';
+import tttPic from './images-projects/ttt.png';
+import webPic from './images-projects/web.png';
+import collage from './images-projects/collage.png';
 
 // Define a type for the project object
 type Project = {
@@ -17,8 +20,8 @@ const projects: Project[] = [
   {
     id: 1,
     title: 'This Website',
-    description: 'Proposed, developed, and implemented a fully functional stop-motion animation studio in the open-source remote collaboration tool, Covey.Town, utilizing React, TypeScript, and the Agile development system.',
-    imageUrl: '/path-to-your-image.jpg',
+    description: 'This website was made without templates, totally from scratch. It was built using React, TypeScript, and CSS. I plan to continue to update and improve it as I learn more about web development. Feedback is welcome!',
+    imageUrl: webPic,
     liveUrl: '',
     repoUrl: 'https://github.com/bbuckwheatt/website',
   },
@@ -33,8 +36,8 @@ const projects: Project[] = [
   {
     id: 3,
     title: 'Photo Editor App',
-    description: 'This is a brief description of Project One.',
-    imageUrl: '/path-to-your-image.jpg',
+    description: 'Utilized polymorphism and composition to create a decoupled, extensible tool in Java to collage and filter photos',
+    imageUrl: collage,
     liveUrl: 'http://liveurl.com',
     repoUrl: 'http://repourl.com',
   },
@@ -42,8 +45,8 @@ const projects: Project[] = [
   {
     id: 4,
     title: 'Tic Tac Toe Game',
-    description: 'This is a brief description of Project One.',
-    imageUrl: '/path-to-your-image.jpg',
+    description: 'Created a simple Tic Tac Toe game using React and TypeScript. Playable with 2 players in Northeastern University\'s Covey.Town, complete with a leaderboard and options to spectate games in progress.',
+    imageUrl: tttPic,
     liveUrl: 'http://liveurl.com',
     repoUrl: 'http://repourl.com',
   },

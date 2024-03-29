@@ -20,34 +20,58 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Ubuntu, sans-serif; 
   background-color: var(--THEME_COLOR_2);
   color: var(--THEME_COLOR_1);
 }
+
+
+h1 {
+  font-family: Ubuntu, sans-serif; 
+}
   
-  header {
-    background-color: var(--THEME_COLOR_3); /* Dark header background */
-    color: var(--THEME_COLOR_1); /* White text */
-    padding: 1rem;
-  }
-  
-  header nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: ; /* Distribute nav items evenly */
-  }
-  
-  header nav ul li a {
-    color: #ffffff; /* White text for links */
-    text-decoration: none;
-    padding: 0.5rem;
-  }
-  
-  header nav ul li a:hover {
-    color: var(--THEME_COLOR_1); /* Highlight color for link hover */
-  }
-  
+.site-header {
+  font-family: Ubuntu, sans-serif; 
+  background-color: var(--THEME_COLOR_3); /* Dark header background */
+  color: var(--THEME_COLOR_1); /* White text */
+  padding: 1rem;
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Space between nav and social links */
+  align-items: center; /* Align items vertically */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+.site-header:hover {
+  background-color: #f3703c; /* Darken the background on hover */
+  /* transform: scale(1.01);  */
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 0; /* Ensure nav list aligns properly */
+}
+
+header nav ul li a {
+  color: #ffffff; /* White text for links */
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+header nav ul li a:hover {
+  color: var(--THEME_COLOR_1); /* Highlight color for link hover */
+}
+
+.social-links a {
+  color: #ffffff; /* White text for links */
+  text-decoration: none;
+  padding: 0 0.5rem; /* Adjust as needed */
+}
+
+.social-links a:hover {
+  color: var(--THEME_COLOR_1); /* Highlight color on hover */
+}
 /* style.css */
 
 @media (max-width: 768px) {
@@ -70,7 +94,7 @@ body, html {
 .hero {
   text-align: left;
   padding: rem 0;
-  margin-top: ;
+  /* margin-top: ; */
   margin-bottom: 2rem;
   margin-left: 0rem;
   /* background-color: var(--THEME_COLOR_4); */
@@ -78,14 +102,16 @@ body, html {
 }
 
 .hero h1 {
+  font-family: Ubuntu, sans-serif; 
   font-size: 4rem;
   margin-bottom: 0.5rem;
   margin-left: 0rem;
 
 }
 .hero h2 {
+  font-family: Ubuntu, sans-serif; 
   font-size: 2rem;
-  max-width:;
+  /* max-width:; */
   text-align: left;
   margin-bottom: 0.5rem;
   margin-left: 0rem;
@@ -134,37 +160,6 @@ body, html {
   text-align: center;
 }
 
-/* Skills Section */
-/* .skills {
-  padding: 2rem 0;
-}
-
-.skills ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.skills li {
-  display: inline-block;
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #ddd;
-  border-radius: 2px;
-} */
-
-/* Contact Section */
-/* .contact {
-  background-color: #333;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
-} */
-
-/* .contact a {
-  color: #04b4e0;
-  text-decoration: none;
-  font-weight: bold;
-} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -188,7 +183,7 @@ body, html {
   background-color: var(--THEME_COLOR_4);
   padding: 2rem;
   text-align: center;
-  margin-bottom: ;
+  /* margin-bottom: ; */
 }
 
 .project-list {
@@ -207,12 +202,19 @@ body, html {
   transition: transform 0.3s ease;
 }
 
+.projects h2 {
+  font-family: Ubuntu, sans-serif; 
+}
+.project h3 {
+  font-family: Ubuntu, sans-serif; 
+}
+
 .project:hover {
   transform: scale(1.1);
 }
 
 .project-image {
-  max-width: 50%;
+  max-width: 70%;
   height: auto;
   border-radius: 4px;
 }
@@ -242,12 +244,15 @@ body, html {
 /* Footer */
 
 .site-footer {
+  font-family: Ubuntu, sans-serif; 
   background-color: var(--THEME_COLOR_5); /* Dark background */
   color: #fff; /* White text */
   text-align: center;
-  padding: 3rem;
+  vertical-align: bottom;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   height: 10px;
-  position: ; /*figure out how to make it stick to the bottom */
+  /* position: ; figure out how to make it stick to the bottom */
   transition: all 0.3s ease; /* Smooth transition for all properties */
   bottom: 0;
   left: 0;
@@ -275,7 +280,7 @@ body, html {
 .home-container {
   text-align: right;
   padding: 20px;
-  background-color:;
+  /* background-color:; */
 }
 
 .header h1 {
@@ -286,13 +291,33 @@ body, html {
 .content {
   display: flex;
   justify-content: space-between;
-  margin-top: ;
+  /* margin-top: ; */
+}
+
+/* .profile-picture {
+  max-width: 70%;
+  text-align: left;
+} */
+
+.home-picture img {
+  max-width: 50%;
+  text-align: left;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional, for shadow effect */
+  transition: transform 0.5s ease;
+}
+
+.home-picture img:hover {
+  transform: scale(1.005); /*Scale up to 110% of the original size on hover */
 }
 
 .profile-picture img {
   max-width: 100%; /* Adjust based on your preference */
   height: auto;
-  border-radius: 10px; /* Optional, for rounded corners */
+  border-radius: 5px; /* Optional, for rounded corners */
+  /* border: 1px solid var(--THEME_COLOR_1); */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional, for shadow effect */
   transition: transform 0.5s ease; /*Smooth transition for transform */
 }
 
@@ -304,6 +329,16 @@ body, html {
   max-width: 50%;
   text-align: left;
   margin-left: 1rem;
+  font-size: 1.5rem;
+  /* background-color: white;
+  border-radius: 10px; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.description p {
+  max-width: 85%;
+  text-align: left;
+  /* margin-left: rem; */
   /* background-color: white;
   border-radius: 10px; */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
@@ -311,23 +346,28 @@ body, html {
 
 .location {
   max-width: 50%;
-  margin-top: ;
+  /* margin-top: ; */
   text-align: left;
 }
 
 .experience {
-  margin-top: ;
+  font-size: 1.5rem;
+  /* margin-top: ; */
   text-align: left;
 }
 
 .mission {
-  margin-top:;
+  /* margin-top:; */
+  font-size: 1.5rem;
   text-align: left;
 }
 
 .hobbies {
-  margin-top: ;
+  font-size: 1.5rem;
+  /* margin-top: ; */
   text-align: left;
+  max-width: 50%;
+
 }
 
 hr {
@@ -335,4 +375,51 @@ hr {
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid #eee;
+}
+
+/* Gallery Page Specifically */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.category img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional for styling */
+}
+
+.category p {
+  text-align: center;
+}
+
+/* Photo Category Page */
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Adjust min size as needed */
+  gap: 20px; /* Space between items */
+  padding: 20px; /* Padding around the grid */
+}
+
+.photo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align the items if you want */
+}
+
+.photo-item img {
+  width: 100%; /* Make images responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: for rounded corners */
+}
+
+.photo-title {
+  margin-top: 10px; /* Space between the image and its title */
+  text-align: center; /* Center-align the title */
+  font-size: 16px; /* Adjust title font size as needed */
+  color: #333; /* Title text color */
 }

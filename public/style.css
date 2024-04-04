@@ -92,7 +92,7 @@ header nav ul li a:hover {
 
   /* Hero Section */
 .hero {
-  text-align: left;
+  text-align: center;
   padding: rem 0;
   /* margin-top: ; */
   margin-bottom: 2rem;
@@ -112,7 +112,7 @@ header nav ul li a:hover {
   font-family: Ubuntu, sans-serif; 
   font-size: 2rem;
   /* max-width:; */
-  text-align: left;
+  text-align: center;
   margin-bottom: 0.5rem;
   margin-left: 0rem;
 
@@ -300,7 +300,7 @@ header nav ul li a:hover {
 } */
 
 .home-picture img {
-  max-width: 50%;
+  max-width: 30em;
   text-align: left;
   height: auto;
   border-radius: 5px;
@@ -351,6 +351,7 @@ header nav ul li a:hover {
 }
 
 .experience {
+  padding-left: 1rem;
   font-size: 1.5rem;
   /* margin-top: ; */
   text-align: left;

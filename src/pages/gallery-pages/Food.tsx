@@ -1,5 +1,5 @@
 import React from 'react';
-import nl from './travel-images/nl.jpeg';
+import nl from './iceland-images/nl.jpeg';
 
 const Food: React.FC = () => {
   return (

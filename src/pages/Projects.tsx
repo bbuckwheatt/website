@@ -38,8 +38,8 @@ const projects: Project[] = [
     title: 'Photo Editor App',
     description: 'Utilized polymorphism and composition to create a decoupled, extensible tool in Java to collage and filter photos',
     imageUrl: collage,
-    liveUrl: 'http://liveurl.com',
-    repoUrl: 'http://repourl.com',
+    liveUrl: 'https://github.com/bbuckwheatt/collage',
+    repoUrl: 'https://github.com/bbuckwheatt/collage',
   },
 
   {
@@ -47,8 +47,8 @@ const projects: Project[] = [
     title: 'Tic Tac Toe Game',
     description: 'Created a simple Tic Tac Toe game using React and TypeScript. Playable with 2 players in Northeastern University\'s Covey.Town, complete with a leaderboard and options to spectate games in progress.',
     imageUrl: tttPic,
-    liveUrl: 'http://liveurl.com',
-    repoUrl: 'http://repourl.com',
+    liveUrl: 'https://stop-motion-studio-hyvi.onrender.com',
+    repoUrl: 'https://github.com/neu-cs4530/covey-town-project-team-603',
   },
 
   {

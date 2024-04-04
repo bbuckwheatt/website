@@ -19,10 +19,11 @@ const Header: React.FC = () => {
       </nav>
       <div className="social-links">
         {/* Update href with your actual URLs */}
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+        <a href="https://www.linkedin.com/in/cameron-powell-/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-        <a href="/path-to-your-resume.pdf" target="_blank" rel="noopener noreferrer"><FaFilePdf /></a>
+        <a href="https://drive.google.com/file/d/1vkAo0ptWCJjsrb_eoZdmm7-QZS0xIr7_/view?usp=sharing" target="_blank" rel="noopener noreferrer"><FaFilePdf /></a>
       </div>
+      
     </header>
   );
 };

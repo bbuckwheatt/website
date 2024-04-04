@@ -8,7 +8,10 @@ import Hobbies from './pages/Hobbies';
 import Gallery from './pages/Gallery';
 import Footer from './components/Footer';
 
-import Travel from './pages/gallery-pages/Travel';
+import Iceland from './pages/gallery-pages/Iceland';
+import Ireland from './pages/gallery-pages/Ireland';
+import London from './pages/gallery-pages/London';
+import Italy from './pages/gallery-pages/Italy';
 import Food from './pages/gallery-pages/Food';
 import Meatball from './pages/gallery-pages/Meatball';
 
@@ -30,7 +33,10 @@ const App: React.FC = () => {
         <Route path="/about" element={<About />} />
         <Route path="/hobbies" element={<Hobbies />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/gallery/travel" element={<Travel />} />
+        <Route path="/gallery/iceland" element={<Iceland />} />
+        <Route path="/gallery/ireland" element={<Ireland />} />
+        <Route path="/gallery/italy" element={<Italy />} />
+        <Route path="/gallery/london" element={<London />} />
           <Route path="/gallery/food" element={<Food />} />
           <Route path="/gallery/meatball" element={<Meatball />} />
         {/* Define other routes here */}

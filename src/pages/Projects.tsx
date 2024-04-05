@@ -1,9 +1,11 @@
 // src/components/Projects.tsx
-import React from 'react';
 import animatorPic from './images-projects/animator.png';
 import tttPic from './images-projects/ttt.png';
 import webPic from './images-projects/web.png';
 import collage from './images-projects/collage.png';
+import React, { useState } from 'react';
+import StopMotionStudioModal from '../components/StopMotionStudio/StopMotionStudioModal';
+
 
 // Define a type for the project object
 type Project = {
@@ -55,7 +57,7 @@ const projects: Project[] = [
     id: 5,
     title: 'New York City Property Price Estimator',
     description: 'This is a brief description of Project One.',
-    imageUrl: '/path-to-your-image.jpg',
+    imageUrl: '',
     liveUrl: 'http://liveurl.com',
     repoUrl: 'http://repourl.com',
   },
@@ -64,6 +66,18 @@ const projects: Project[] = [
 ];
 
 const Projects: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    console.log("Opening modal");
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => {
+    console.log("Closing modal");
+    setIsModalOpen(false);
+  };
+
   return (
     <section className="projects">
       <h2>My Projects</h2>
@@ -73,12 +87,22 @@ const Projects: React.FC = () => {
             <img src={project.imageUrl} alt={project.title} className="project-image" />
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">View Live</a>
-            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">View Code</a>
+            {project.id === 2 ? (
+              // This button will now toggle the modal based on `isModalOpen`
+              <button className ="project" onClick={openModal}>Open Studio</button>
+            ) : (
+              <>
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">View Live</a>
+                <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">View Code</a>
+              </>
+            )}
           </div>
         ))}
       </div>
+      {/* Conditionally render the StopMotionStudioModal based on `isModalOpen` */}
+      <StopMotionStudioModal isOpen={isModalOpen} onClose={closeModal} />
     </section>
+
   );
 };
 

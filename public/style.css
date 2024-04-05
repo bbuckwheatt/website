@@ -1,17 +1,19 @@
 /* style.css */
 
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+
 /* Theme Constants */
 :root {
   /*Text*/
-  --THEME_COLOR_1: #252422;
+  --THEME_COLOR_1: #141414;
   /*Background*/
-  --THEME_COLOR_2: #FFFCF2;
+  --THEME_COLOR_2: #eef0f2;
   /*Header*/
-  --THEME_COLOR_3: #EB5E28;
+  --THEME_COLOR_3: #0d21a1;
   /*Hero, about, projects*/
-  --THEME_COLOR_4: #CCC5B9;
+  --THEME_COLOR_4: #eec643;
   /*footer*/
-  --THEME_COLOR_5: #403D39;
+  --THEME_COLOR_5: #011638;
   /*Footer Text*/
   --FOOTER_TEXT: #fff;
 }
@@ -20,18 +22,18 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: Ubuntu, sans-serif; 
+	font-family: "Raleway", sans-serif !important;
   background-color: var(--THEME_COLOR_2);
   color: var(--THEME_COLOR_1);
 }
 
 
 h1 {
-  font-family: Ubuntu, sans-serif; 
+	font-family: "Raleway", sans-serif !important;
 }
   
 .site-header {
-  font-family: Ubuntu, sans-serif; 
+	font-family: "Raleway", sans-serif !important;
   background-color: var(--THEME_COLOR_3); /* Dark header background */
   color: var(--THEME_COLOR_1); /* White text */
   padding: 1rem;
@@ -42,7 +44,7 @@ h1 {
 }
 
 .site-header:hover {
-  background-color: #f3703c; /* Darken the background on hover */
+  background-color: #011638; /* Darken the background on hover */
   /* transform: scale(1.01);  */
 }
 
@@ -54,23 +56,23 @@ header nav ul {
 }
 
 header nav ul li a {
-  color: #ffffff; /* White text for links */
+  color: var(--THEME_COLOR_2); /* White text for links */
   text-decoration: none;
   padding: 0.5rem;
 }
 
 header nav ul li a:hover {
-  color: var(--THEME_COLOR_1); /* Highlight color for link hover */
+  color: var(--THEME_COLOR_4); /* Highlight color for link hover */
 }
 
 .social-links a {
-  color: #ffffff; /* White text for links */
+  color: var(--THEME_COLOR_2); /* White text for links */
   text-decoration: none;
   padding: 0 0.5rem; /* Adjust as needed */
 }
 
 .social-links a:hover {
-  color: var(--THEME_COLOR_1); /* Highlight color on hover */
+  color: var(--THEME_COLOR_4); /* Highlight color on hover */
 }
 /* style.css */
 
@@ -102,14 +104,14 @@ header nav ul li a:hover {
 }
 
 .hero h1 {
-  font-family: Ubuntu, sans-serif; 
+	font-family: "Raleway", sans-serif !important;
   font-size: 4rem;
   margin-bottom: 0.5rem;
   margin-left: 0rem;
 
 }
 .hero h2 {
-  font-family: Ubuntu, sans-serif; 
+	font-family: "Raleway", sans-serif !important;
   font-size: 2rem;
   /* max-width:; */
   text-align: center;
@@ -203,10 +205,10 @@ header nav ul li a:hover {
 }
 
 .projects h2 {
-  font-family: Ubuntu, sans-serif; 
+	font-family: "Raleway", sans-serif !important;
 }
 .project h3 {
-  font-family: Ubuntu, sans-serif; 
+	font-family: "Raleway", sans-serif !important;
 }
 
 .project:hover {
@@ -259,14 +261,14 @@ header nav ul li a:hover {
 /* Footer */
 
 .site-footer {
-  font-family: Ubuntu, sans-serif; 
+	font-family: "Raleway", sans-serif !important;
   background-color: var(--THEME_COLOR_5); /* Dark background */
   color: #fff; /* White text */
   text-align: center;
   vertical-align: bottom;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  height: 10px;
+  height: 3rem;
   /* position: ; figure out how to make it stick to the bottom */
   transition: all 0.3s ease; /* Smooth transition for all properties */
   bottom: 0;
@@ -275,18 +277,19 @@ header nav ul li a:hover {
 }
 
 .site-footer:hover {
-  background-color: #333; /* Darken the background on hover */
-  height: 20px; /* Increase height on hover */
+  background-color: #010013; /* Darken the background on hover */
+  /* height: 20px; Increase height on hover */
 }
 
 .site-footer a {
-  color: var(--FOOTER_TEXT); /* White text for links */
+  color: var(--THEME_COLOR_2); /* White text for links */
   margin: 0 15px;
   text-decoration: none;
 }
 
 .site-footer a:hover {
   text-decoration: underline;
+  color: var(--THEME_COLOR_4);
 }
 
 
@@ -318,7 +321,7 @@ header nav ul li a:hover {
   max-width: 30em;
   text-align: left;
   height: auto;
-  border-radius: 5px;
+  border-radius: 0px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional, for shadow effect */
   transition: transform 0.5s ease;
 }
@@ -330,7 +333,7 @@ header nav ul li a:hover {
 .profile-picture img {
   max-width: 100%; /* Adjust based on your preference */
   height: auto;
-  border-radius: 5px; /* Optional, for rounded corners */
+  border-radius: 0px; /* Optional, for rounded corners */
   /* border: 1px solid var(--THEME_COLOR_1); */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional, for shadow effect */
   transition: transform 0.5s ease; /*Smooth transition for transform */
@@ -390,7 +393,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #eec643;
 }
 
 /* Gallery Page Specifically */
@@ -405,7 +408,7 @@ hr {
 .category img {
   width: 100%;
   height: auto;
-  border-radius: 8px; /* Optional for styling */
+  border-radius: 0px; /* Optional for styling */
 }
 
 .category p {
@@ -423,14 +426,16 @@ hr {
 
 .photo-item {
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Center-align the items if you want */
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* flex-direction: row-reverse;
+  align-items: normal; Center-align the items if you want */
 }
 
 .photo-item img {
   width: 100%; /* Make images responsive */
   height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Optional: for rounded corners */
+  border-radius: 0px; /* Optional: for rounded corners */
 }
 
 .photo-title {
@@ -439,3 +444,4 @@ hr {
   font-size: 16px; /* Adjust title font size as needed */
   color: #333; /* Title text color */
 }
+

@@ -80,7 +80,7 @@ const Projects: React.FC = () => {
 
   return (
     <section className="projects">
-      <h2>My Projects</h2>
+      <h1>My Projects</h1>
       <div className="project-list">
         {projects.map((project) => (
           <div key={project.id} className="project">
@@ -89,7 +89,7 @@ const Projects: React.FC = () => {
             <p>{project.description}</p>
             {project.id === 2 ? (
               // This button will now toggle the modal based on `isModalOpen`
-              <button className ="project" onClick={openModal}>Open Studio</button>
+              <a onClick={openModal}>Open Studio</a>
             ) : (
               <>
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">View Live</a>

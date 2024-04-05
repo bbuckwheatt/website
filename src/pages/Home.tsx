@@ -41,7 +41,7 @@ const Home: React.FC = () => {
             where I studied Computer Science and Business Administration with a concentration
             in Fintech.
           </p>
-          <p> Outside of school and work I play video games and tabletop RPGs, care for my cat Meatball, code for fun on side projects, and love to cook.</p>
+          <p> Outside of school and work I love to travel, play video games and tabletop RPGs, care for my cat Meatball, work on programming projects, and cook.</p>
           <p>
             I am currently living in Boston, Massachusetts, and I am looking for a full-time opportunity to work as a software engineer.
             Feel free to browse my website to learn about me, what I like to do, and what I have accomplished so far.
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
             From a young age, computers have always interested me. I built my first gaming PC in seventh grade, so making the jump to software development felt like a natural progression. Since then, I have been constantly learning and improving myself, and I am always looking for new opportunities to grow and develop my skills.
           </p>
           <p>
-            In particular, some skills I excel at include: critical thinking, problem-solving, coding, data analysis, project management, professional communications, and business strategy. I am also a quick learner and quick thinker who is highly adaptable, as evidenced by my education path and decision to break into the computer science world.
+            In particular, some skills I excel at include: critical thinking, problem-solving, coding, data analysis, project management, professional communications, and business strategy. I am also a quick learner and thinker who is highly adaptable, as evidenced by my decision to break into the computer science world.
           </p>
 
         </div>

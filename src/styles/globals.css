@@ -1,0 +1,40 @@
+/* globals.css - Global styles and theme variables */
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+
+/* Theme Constants */
+:root {
+  /*Text*/
+  --THEME_COLOR_1: #141414;
+  /*Background*/
+  --THEME_COLOR_2: #eef0f2;
+  /*Header*/
+  --THEME_COLOR_3: #0d21a1;
+  /*Hero, about, projects*/
+  --THEME_COLOR_4: #eec643;
+  /*footer*/
+  --THEME_COLOR_5: #011638;
+  /*Footer Text*/
+  --FOOTER_TEXT: #fff;
+}
+
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif !important;
+  background-color: var(--THEME_COLOR_2);
+  color: var(--THEME_COLOR_1);
+}
+
+h1 {
+  font-family: "Raleway", sans-serif !important;
+}
+
+/* Utility Styles */
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eec643;
+}

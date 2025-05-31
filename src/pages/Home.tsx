@@ -5,7 +5,7 @@ import Image from './images-home/me.JPG';
 import exp from './images-home/exp.jpg';
 import mis from './images-home/mission.jpg';
 import vert from './images-home/vert.jpg';
-
+import '../styles/home.css';
 // const Home: React.FC = () => {
 //     return (
 //       <div className="hero">

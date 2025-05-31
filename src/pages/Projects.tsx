@@ -5,7 +5,7 @@ import webPic from './images-projects/web.png';
 import collage from './images-projects/collage.png';
 import React, { useState } from 'react';
 import StopMotionStudioModal from '../components/StopMotionStudio/StopMotionStudioModal';
-
+import '../styles/projects.css';
 
 // Define a type for the project object
 type Project = {

@@ -1,4 +1,10 @@
-/* style.css */
+/* style.css - Main stylesheet importing all modular CSS files */
+
+/* Import modular stylesheets */
+@import url('../src/styles/globals.css');
+@import url('../src/styles/layout.css');
+@import url('../src/styles/home.css');
+@import url('../src/styles/gallery.css');
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
 

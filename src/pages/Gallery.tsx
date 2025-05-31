@@ -6,7 +6,7 @@ import Meatball from './images-gallery/meatball.jpeg';
 import Ireland from './images-gallery/ireland.jpg';
 import Italy from './images-gallery/italy.jpeg';
 import London from './images-gallery/london.jpeg';
-
+import '../styles/gallery.css';
 
 // Example categories data
 const categories = [

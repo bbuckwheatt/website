@@ -1,0 +1,48 @@
+/* gallery.css - Gallery page specific styles */
+
+/* Gallery Page Main Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.category img {
+  width: 100%;
+  height: auto;
+  border-radius: 0px; /* Optional for styling */
+}
+
+.category p {
+  text-align: center;
+}
+
+/* Photo Category Page */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Adjust min size as needed */
+  gap: 20px; /* Space between items */
+  padding: 20px; /* Padding around the grid */
+}
+
+.photo-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* flex-direction: row-reverse;
+  align-items: normal; Center-align the items if you want */
+}
+
+.photo-item img {
+  width: 100%; /* Make images responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 0px; /* Optional: for rounded corners */
+}
+
+.photo-title {
+  margin-top: 10px; /* Space between the image and its title */
+  text-align: center; /* Center-align the title */
+  font-size: 16px; /* Adjust title font size as needed */
+  color: #333; /* Title text color */
+}

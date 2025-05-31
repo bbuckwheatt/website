@@ -1,0 +1,225 @@
+/* home.css - Home page specific styles */
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: rem 0;
+  /* margin-top: ; */
+  margin-bottom: 2rem;
+  margin-left: 0rem;
+  /* background-color: var(--THEME_COLOR_4); */
+}
+
+.hero h1 {
+  font-family: "Raleway", sans-serif !important;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0rem;
+}
+
+.hero h2 {
+  font-family: "Raleway", sans-serif !important;
+  font-size: 2rem;
+  /* max-width:; */
+  text-align: center;
+  margin-bottom: 0.5rem;
+  margin-left: 0rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--THEME_COLOR_1);
+  margin-left: 4px;
+}
+
+/* About Section */
+.about {
+  background-color: var(--THEME_COLOR_4);
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Projects Section */
+.projects {
+  background-color: var(--THEME_COLOR_4);
+  padding: 2rem;
+  text-align: center;
+  /* margin-bottom: ; */
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.project {
+  width: 30%;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #f9f9f9;
+  transition: transform 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.projects h2 {
+  font-family: "Raleway", sans-serif !important;
+}
+
+.project h3 {
+  font-family: "Raleway", sans-serif !important;
+}
+
+.project:hover {
+  transform: scale(1.1);
+}
+
+.project-image {
+  max-width: 70%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.project a {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+.project a:hover {
+  background-color: #333;
+  color: #ffffff;
+}
+
+.project button {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+.project button:hover {
+  background-color: #333;
+  color: #ffffff;
+}
+
+/* Home Container and Layout */
+.home-container {
+  text-align: right;
+  padding: 20px;
+  /* background-color:; */
+}
+
+.header h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: ; */
+}
+
+/* Profile Picture Styles */
+.home-picture img {
+  max-width: 30em;
+  text-align: left;
+  height: auto;
+  border-radius: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional, for shadow effect */
+  transition: transform 0.5s ease;
+}
+
+.home-picture img:hover {
+  transform: scale(1.005); /*Scale up to 110% of the original size on hover */
+}
+
+.profile-picture img {
+  max-width: 100%; /* Adjust based on your preference */
+  height: auto;
+  border-radius: 0px; /* Optional, for rounded corners */
+  /* border: 1px solid var(--THEME_COLOR_1); */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional, for shadow effect */
+  transition: transform 0.5s ease; /*Smooth transition for transform */
+}
+
+.profile-picture img:hover {
+   transform: scale(1.005); /*Scale up to 110% of the original size on hover */
+}
+
+/* Content Sections */
+.description {
+  max-width: 50%;
+  text-align: left;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  /* background-color: white;
+  border-radius: 10px; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.description p {
+  max-width: 85%;
+  text-align: left;
+  /* margin-left: rem; */
+  /* background-color: white;
+  border-radius: 10px; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.location {
+  max-width: 50%;
+  /* margin-top: ; */
+  text-align: left;
+}
+
+.experience {
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  /* margin-top: ; */
+  text-align: left;
+}
+
+.mission {
+  /* margin-top:; */
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.hobbies {
+  font-size: 1.5rem;
+  /* margin-top: ; */
+  text-align: left;
+  max-width: 50%;
+}
+
+/* Responsive Design for Home Page */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .skills li {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .project {
+    width: 100%;
+  }
+}

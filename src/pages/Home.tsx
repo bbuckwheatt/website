@@ -16,6 +16,10 @@ const Home: React.FC = () => {
     const container = mountRef.current;
     let animationId: number;
 
+    // Detect mobile devices
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     window.innerWidth <= 768;
+
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -26,11 +30,12 @@ const Home: React.FC = () => {
     );
 
     const renderer = new THREE.WebGLRenderer({ 
-      antialias: true,
-      alpha: true 
+      antialias: !isMobile, // Disable antialiasing on mobile for performance
+      alpha: true,
+      powerPreference: isMobile ? "low-power" : "high-performance"
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
     container.appendChild(renderer.domElement);
 
     let model3D: THREE.Group | null = null;
@@ -254,10 +259,11 @@ const Home: React.FC = () => {
       `
     };
 
-    // Post-processing setup with higher quality
+    // Post-processing setup with mobile optimizations
+    const renderTargetScale = isMobile ? 1 : 2; // Lower resolution on mobile
     const renderTarget = new THREE.WebGLRenderTarget(
-      container.clientWidth * 2,
-      container.clientHeight * 2,
+      container.clientWidth * renderTargetScale,
+      container.clientHeight * renderTargetScale,
       {
         minFilter: THREE.LinearFilter,
         magFilter: THREE.LinearFilter,
@@ -304,7 +310,7 @@ const Home: React.FC = () => {
       camera.updateProjectionMatrix();
 
       renderer.setSize(width, height);
-      renderTarget.setSize(width * 2, height * 2);
+      renderTarget.setSize(width * renderTargetScale, height * renderTargetScale);
       
       // Update resolution uniform
       postMaterial.uniforms.uResolution.value.set(width, height);
@@ -312,7 +318,7 @@ const Home: React.FC = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Mouse interaction - rotation only (no zoom)
+    // Enhanced mouse and touch interaction - rotation only (no zoom)
     const mouse = new THREE.Vector2();
     const mouseStart = new THREE.Vector2();
     let isDragging = false;
@@ -362,13 +368,64 @@ const Home: React.FC = () => {
       container.style.cursor = 'grab';
     };
 
+    // Touch event handlers for mobile
+    const handleTouchStart = (event: TouchEvent) => {
+      event.preventDefault();
+      if (event.touches.length === 1) {
+        isDragging = true;
+        const touch = event.touches[0];
+        const rect = container.getBoundingClientRect();
+        mouseStart.x = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
+        mouseStart.y = -((touch.clientY - rect.top) / rect.height) * 2 + 1;
+      }
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      event.preventDefault();
+      if (isDragging && event.touches.length === 1) {
+        const touch = event.touches[0];
+        const rect = container.getBoundingClientRect();
+        mouse.x = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((touch.clientY - rect.top) / rect.height) * 2 + 1;
+
+        // Calculate touch delta for rotation (more sensitive on mobile)
+        const deltaX = mouse.x - mouseStart.x;
+        const deltaY = mouse.y - mouseStart.y;
+
+        // Update spherical coordinates with mobile-optimized sensitivity
+        spherical.theta -= deltaX * (isMobile ? 4 : 3); // More sensitive on mobile
+        spherical.phi = Math.max(0.1, Math.min(Math.PI - 0.1, spherical.phi - deltaY * (isMobile ? 3 : 2)));
+
+        // Convert spherical to cartesian coordinates
+        const position = new THREE.Vector3();
+        position.setFromSpherical(spherical);
+        
+        camera.position.copy(position);
+        camera.lookAt(0, 0, 0);
+
+        // Update touch start position for continuous dragging
+        mouseStart.copy(mouse);
+      }
+    };
+
+    const handleTouchEnd = (event: TouchEvent) => {
+      event.preventDefault();
+      isDragging = false;
+    };
+
     // Set initial cursor
     container.style.cursor = 'grab';
 
+    // Add event listeners for both mouse and touch
     container.addEventListener('mousedown', handleMouseDown);
     container.addEventListener('mousemove', handleMouseMove);
     container.addEventListener('mouseup', handleMouseUp);
     container.addEventListener('mouseleave', handleMouseLeave);
+    
+    // Touch events for mobile
+    container.addEventListener('touchstart', handleTouchStart, { passive: false });
+    container.addEventListener('touchmove', handleTouchMove, { passive: false });
+    container.addEventListener('touchend', handleTouchEnd, { passive: false });
 
     // Cleanup
     return () => {
@@ -380,6 +437,10 @@ const Home: React.FC = () => {
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseup', handleMouseUp);
       container.removeEventListener('mouseleave', handleMouseLeave);
+      // Remove touch event listeners
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Iceland from './images-gallery/iceland.jpeg';
 import Food from './images-gallery/food.jpeg';
 import Meatball from './images-gallery/meatball.jpeg';
-import Ireland from './images-gallery/ireland.jpg';
+import Ireland from './images-gallery/ireland.JPG';
 import Italy from './images-gallery/italy.jpeg';
 import London from './images-gallery/london.jpeg';
 import '../styles/gallery.css';

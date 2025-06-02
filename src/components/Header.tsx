@@ -1,29 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaLinkedin, FaInstagram, FaFilePdf } from 'react-icons/fa';
-// If using React Icons or similar, import necessary icons
-// Example: import { FaLinkedin, FaInstagram, FaFileAlt } from 'react-icons/fa';
+import '../styles/header-style.css';
 
 const Header: React.FC = () => {
   return (
-    <header className="site-header">
-      <nav>
-        <ul className="nav-list">
-          <li><Link to="/" className="nav-link">Home</Link></li>
-          <li><Link to="/projects" className="nav-link">Projects</Link></li>
-          <li><Link to="/hobbies" className="nav-link">Hobbies</Link></li>
-          <li><Link to="/gallery" className="nav-link">Gallery</Link></li>
-          <li><Link to="/about" className="nav-link">About</Link></li>
-          {/* Other navigation links */}
-        </ul>
-      </nav>
-      <div className="social-links">
-        {/* Update href with your actual URLs */}
-        <a href="https://www.linkedin.com/in/cameron-powell-/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-        <a href="https://drive.google.com/file/d/1vkAo0ptWCJjsrb_eoZdmm7-QZS0xIr7_/view?usp=sharing" target="_blank" rel="noopener noreferrer"><FaFilePdf /></a>
+    <header className="header">
+      <div className="header-left">
+        <div className="logo">Cameron Powell</div>
+        <nav className="header-nav">
+          <Link to="/" className="active">Home</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/about">About</Link>
+          <Link to="/gallery">Gallery</Link>
+          <Link to="/contact">Contact</Link>
+        </nav>
       </div>
-      
+      <div className="header-right">
+        <button className="theme-toggle">🌙</button>
+      </div>
     </header>
   );
 };

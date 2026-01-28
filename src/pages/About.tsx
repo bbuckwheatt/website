@@ -1,81 +1,55 @@
-// src/components/About.tsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import '../styles/about.css';
 
-const About: React.FC = () => 
-// {
-//   return (
-//     <section className="about">
-
-//     </section>
-//   );
-// };
-
-{
+const About: React.FC = () => {
   return (
-    <div className="home-container">
-      <div className="content">
-      </div>
-      <div className="content">
-        <div className="profile-picture">
-          {/* <img src={profileImage} alt="Cameron Powell" /> */}
-        </div>
-        <div className="about">
-        <h2>About Me</h2>
-      <p>As I'm sure you've read by now, my name is Cameron Powell, but most people just call me Cam.
-        I am 23 years old, living in Boston Massachusetts with my girlfriend and my cat, Meatball.
-        I graduated from Northeastern University in December of 2023 with honors, where I received 
-        a Bachelor of Science in Computer Science and Business Administration with a concentration 
-        in Financial Technology. 
-      </p>
+    <section className="about-page">
+      <header className="about-hero">
+        <h1>About Cameron</h1>
+        <p>
+          Lead Solutions Engineer based in Boston. I build technical partnerships that translate
+          ambitious goals into reliable products, integrations, and deployments.
+        </p>
+      </header>
 
-      <p>I graduated from St. John's Preparatory School in 2019, where I
-            received my high school education. From high school, I went on to study abroad
-            in Rome at John Cabot University for my first semester of college through
-            Northeastern's N.U.in program. In December of 2023, I completed all of my coursework
-            for my undergraduate studies at Northeastern and will attend my official graduation
-            in May 2024.
-            </p>
-            <p>
-              For my two co-ops at Northeastern, I worked at Enel X North America,
-              first as a Demand Response Support Analyst intern for six months in 2021, and then
-              as an Energy Markets Business Analyst intern for eight months in 2022. I am currently
-              looking for a full-time work opportunity, and I am excited to see what the future has in store for me!
-              </p>
-              
-          <Link to="/gallery">Check Out My Life in Photos</Link>
-        </div>
-      </div>
-      <hr />
-      <div className="content">
-        <div className="mission">
-          <h1>Skills</h1>
+      <div className="about-grid">
+        <div className="about-card">
+          <h2>Summary</h2>
           <p>
-            i code
+            I lead the Solutions Engineering function at CustomGPT.ai, where I’ve delivered
+            enterprise-grade implementations, led security reviews, and built internal tooling
+            that scales sales and customer success. My work blends systems thinking, technical
+            depth, and high-touch communication.
+          </p>
+        </div>
+
+        <div className="about-card">
+          <h2>Technical Focus</h2>
+          <ul>
+            <li>AI automation, RAG workflows, and API integrations</li>
+            <li>Product implementation and solution architecture</li>
+            <li>Data tooling: dashboards, telemetry, and insights</li>
+            <li>Frontend engineering with React + TypeScript</li>
+          </ul>
+        </div>
+
+        <div className="about-card">
+          <h2>Education</h2>
+          <p>
+            Northeastern University — B.S. in Computer Science &amp; Business Administration
+            (FinTech concentration). Graduated May 2024, Cum Laude, 3.7 GPA.
+          </p>
+        </div>
+
+        <div className="about-card">
+          <h2>Interests</h2>
+          <p>
+            Technology, strategy and role-playing games, science fiction, finance, fitness,
+            hiking, cooking, coffee, and pickleball.
           </p>
         </div>
       </div>
-      <hr />
-      <div className="content">
-        <div className="experience">
-          <h1>My Experience</h1>
-          <p>
-            lots nd lots
-          </p>
-          <Link to="/projects">View My Projects</Link>
-        </div>
-      </div>
-      <hr />
-      <div className="content">
-        <div className="hobbies">
-          <h1>My Hobbies</h1>
-          <p>
-            coding
-          </p>
-          <Link to="/hobbies">Learn What I Do For Fun!</Link>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 

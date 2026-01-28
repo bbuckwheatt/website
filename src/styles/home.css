@@ -1,22 +1,10 @@
-/* home.css - Minimalist Dithered Portfolio Style */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #000000;
-    color: #ffffff;
-    overflow-x: hidden;
-  }
+/* home.css - Hero and 3D showcase */
   
   .home-container {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: radial-gradient(circle at top left, #eef2ff 0%, #ffffff 45%, #f8fafc 100%);
   }
   
   /* Main Content Section */
@@ -24,7 +12,7 @@
     flex: 1;
     display: flex;
     align-items: flex-start;
-    padding: 4rem 2rem 2rem;
+    padding: 4.5rem 3rem 2.5rem;
     gap: 4rem;
     position: relative;
     min-height: 80vh;
@@ -33,18 +21,18 @@
   /* Main Content - Left Side */
   .main-content {
     flex: 1;
-    max-width: 600px;
+    max-width: 620px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
   
   .main-title {
-    font-size: 3.5rem;
+    font-size: 3.4rem;
     font-weight: 700;
-    line-height: 1.1;
-    color: #ffffff;
-    margin-bottom: 1rem;
+    line-height: 1.05;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
   }
   
   .main-subtitle {
@@ -61,14 +49,54 @@
   }
   
   .intro-paragraph {
-    font-size: 1rem;
-    color: #888888;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    color: rgba(15, 23, 42, 0.72);
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .primary-button,
+  .ghost-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .primary-button {
+    background: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.3);
+  }
+
+  .primary-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(37, 99, 235, 0.35);
+  }
+
+  .ghost-button {
+    border: 1px solid rgba(15, 23, 42, 0.2);
+    color: #0f172a;
+    background: #ffffff;
+  }
+
+  .ghost-button:hover {
+    background: #f1f5f9;
   }
   
   /* 3D Animation - Right Side (Responsive) */
   .animation-sidebar {
-    width: min(35vw, 600px);
+    width: min(35vw, 580px);
     min-width: 300px;
     flex-shrink: 0;
     display: flex;
@@ -82,12 +110,13 @@
     width: 100%;
     height: min(35vw, 600px);
     min-height: 300px;
-    border: none;
-    border-radius: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 18px;
     overflow: hidden;
-    background: transparent;
+    background: rgba(15, 23, 42, 0.95);
     position: relative;
     transition: opacity 0.5s ease;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
   }
   
   .three-container canvas {
@@ -101,7 +130,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #666666;
+    color: rgba(248, 250, 252, 0.8);
     text-align: center;
   }
   
@@ -118,9 +147,9 @@
   
   /* Demo Info Section - Lower on page */
   .demo-info-section {
-    padding: 3rem 2rem;
-    background: rgba(17, 17, 17, 0.5);
-    border-top: 1px solid #222222;
+    padding: 3rem 2rem 4rem;
+    background: rgba(15, 23, 42, 0.04);
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
   }
   
   .demo-info {
@@ -133,12 +162,12 @@
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #ffffff;
+    color: #0f172a;
   }
   
   .demo-info p {
-    font-size: 1.1rem;
-    color: #888888;
+    font-size: 1.05rem;
+    color: rgba(15, 23, 42, 0.7);
     margin-bottom: 2rem;
     line-height: 1.6;
   }
@@ -151,19 +180,19 @@
   }
   
   .tag {
-    background: #222222;
-    color: #cccccc;
+    background: #ffffff;
+    color: #0f172a;
     padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 1px solid #333333;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(148, 163, 184, 0.25);
     transition: all 0.3s ease;
   }
-  
+
   .tag:hover {
-    background: #333333;
-    border-color: #444444;
+    background: #f1f5f9;
+    border-color: rgba(148, 163, 184, 0.45);
   }
   
   /* Remove old navigation styles */
@@ -180,8 +209,8 @@
   
   /* Gradient transition to footer */
   .gradient-transition {
-    height: 100px;
-    background: linear-gradient(180deg, transparent 0%, rgba(17, 17, 17, 0.5) 50%, #111111 100%);
+    height: 80px;
+    background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.05) 50%, rgba(15, 23, 42, 0.12) 100%);
   }
   
   /* Enhanced Responsive Design */
@@ -209,6 +238,10 @@
 
     .intro-content {
       gap: 1.25rem;
+    }
+
+    .hero-actions {
+      justify-content: center;
     }
 
     .intro-paragraph {
@@ -357,8 +390,8 @@
     
     .tag:hover {
       /* Remove hover effects on touch devices */
-      background: #222222;
-      border-color: #333333;
+      background: #ffffff;
+      border-color: rgba(148, 163, 184, 0.25);
     }
   }
   

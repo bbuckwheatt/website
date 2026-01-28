@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
             Resume
           </a>
         </div>
-        <p className="copyright">© 2024 Cameron Powell</p>
+        <p className="copyright">© 2026 Cameron Powell</p>
       </div>
     </footer>
   );

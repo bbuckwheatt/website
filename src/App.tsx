@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
-import './styles/layout.css';
 
 
 // Lazy load pages for better performance
@@ -12,6 +11,7 @@ const Projects = lazy(() => import('./pages/Projects'));
 const About = lazy(() => import('./pages/About'));
 const Hobbies = lazy(() => import('./pages/Hobbies'));
 const Gallery = lazy(() => import('./pages/Gallery'));
+const Contact = lazy(() => import('./pages/Contact'));
 const Iceland = lazy(() => import('./pages/gallery-pages/Iceland'));
 const Ireland = lazy(() => import('./pages/gallery-pages/Ireland'));
 const London = lazy(() => import('./pages/gallery-pages/London'));
@@ -53,6 +53,7 @@ const App: React.FC = () => {
               <Route path="/about" element={<About />} />
               <Route path="/hobbies" element={<Hobbies />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/gallery/iceland" element={<Iceland />} />
               <Route path="/gallery/ireland" element={<Ireland />} />
               <Route path="/gallery/italy" element={<Italy />} />

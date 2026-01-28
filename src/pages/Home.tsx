@@ -472,22 +472,22 @@ const Home: React.FC = () => {
         {/* Main Content - Left Side */}
         <div className="main-content">
           <h1 className="main-title">
-            I'm Cameron. I turn complex problems into elegant solutions.
+            Cameron Powell — Lead Solutions Engineer
           </h1>
           <div className="intro-content">
             <p className="intro-paragraph">
-              My name is Cameron Powell. I'm a passionate software developer and solutions engineer who loves solving problems and creating. 
-              From building interactive web applications to experimenting with cutting-edge technologies, 
-              I find joy in bringing ideas to life through code.
+              I build high-trust, technical partnerships that turn complex customer goals into shipped solutions.
+              At CustomGPT.ai, I lead the Solutions Engineering function and work across product, engineering,
+              and sales to deliver secure, scalable implementations.
             </p>
             <p className="intro-paragraph">
-              When I'm not coding, you'll find me exploring new places with my camera, 
-              capturing moments that inspire my creative work. This intersection of technology 
-              and artistry drives everything I create.
+              My background blends software engineering, data analytics, and customer-facing delivery.
+              I love messy problems, clear outcomes, and the craft of building things that work.
             </p>
-            <p className="intro-paragraph">
-
-            </p>
+            <div className="hero-actions">
+              <Link className="primary-button" to="/projects">View projects</Link>
+              <Link className="ghost-button" to="/contact">Get in touch</Link>
+            </div>
           </div>
         </div>
 
@@ -512,18 +512,18 @@ const Home: React.FC = () => {
       {/* Demo Info Section - Lower on page */}
       <section className="demo-info-section">
         <div className="demo-info">
-          <h2>3D Model with Dithered Rendering</h2>
+          <h2>What I focus on</h2>
           <p>
-            Interactive 3D visualization with real-time retro post-processing effects. 
-            Click and drag to rotate the model and explore the dithered aesthetic.
+            I specialize in bridging product and engineering with business outcomes: translating
+            requirements, designing systems, and shipping production-ready solutions for enterprise teams.
           </p>
           <div className="tech-tags">
-            <span className="tag">Three.js</span>
-            <span className="tag">GLTF Loader</span>
-            <span className="tag">WebGL Shaders</span>
-            <span className="tag">Post-processing</span>
-            <span className="tag">Dithering</span>
-            <span className="tag">TypeScript</span>
+            <span className="tag">Solutions Engineering</span>
+            <span className="tag">APIs & Integrations</span>
+            <span className="tag">RAG & Automation</span>
+            <span className="tag">Data & Dashboards</span>
+            <span className="tag">React & TypeScript</span>
+            <span className="tag">Python & SQL</span>
           </div>
         </div>
       </section>

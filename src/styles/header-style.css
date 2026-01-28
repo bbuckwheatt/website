@@ -8,7 +8,7 @@
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(15, 23, 42, 0.92);
 }
 
 .header-left {
@@ -20,7 +20,7 @@
 .logo {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #f8fafc;
   letter-spacing: -0.02em;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .header-nav a {
-  color: #999999;
+  color: rgba(248, 250, 252, 0.7);
   text-decoration: none;
   font-weight: 400;
   font-size: 0.95rem;
@@ -43,11 +43,11 @@
 }
 
 .header-nav a:hover {
-  color: #ffffff;
+  color: #f8fafc;
 }
 
 .header-nav a.active {
-  color: #6B9EFF;
+  color: #93c5fd;
   font-weight: 500;
 }
 
@@ -58,7 +58,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #6B9EFF;
+  background: #93c5fd;
   border-radius: 1px;
 }
 
@@ -72,7 +72,7 @@
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
-  color: #999999;
+  color: rgba(248, 250, 252, 0.7);
   cursor: pointer;
   font-size: 1rem;
   padding: 0.5rem;
@@ -86,7 +86,7 @@
 
 .theme-toggle:hover {
   background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  color: #f8fafc;
   border-color: rgba(255, 255, 255, 0.3);
 }
 

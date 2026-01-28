@@ -1,34 +1,42 @@
 /* globals.css - Global styles and theme variables */
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* Theme Constants */
 :root {
-  /*Text*/
-  --THEME_COLOR_1: #141414;
-  /*Background*/
-  --THEME_COLOR_2: #eef0f2;
-  /*Header*/
-  --THEME_COLOR_3: #0d21a1;
-  /*Hero, about, projects*/
-  --THEME_COLOR_4: #eec643;
-  /*footer*/
-  --THEME_COLOR_5: #011638;
-  /*Footer Text*/
-  --FOOTER_TEXT: #fff;
+  --THEME_COLOR_1: #0f172a;
+  --THEME_COLOR_2: #f8fafc;
+  --THEME_COLOR_3: #0b1120;
+  --THEME_COLOR_4: #3b82f6;
+  --THEME_COLOR_5: #0f172a;
+  --FOOTER_TEXT: #f8fafc;
+  --ACCENT: #f59e0b;
 }
 
 /* General Styles */
+* {
+  box-sizing: border-box;
+}
+
 body, html {
   margin: 0;
   padding: 0;
-  font-family: "Raleway", sans-serif !important;
-  background-color: var(--THEME_COLOR_2);
+  font-family: "Space Grotesk", sans-serif;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 60%, #f8fafc 100%);
   color: var(--THEME_COLOR_1);
 }
 
-h1 {
-  font-family: "Raleway", sans-serif !important;
+h1, h2, h3 {
+  font-family: "Fraunces", serif;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
 }
 
 /* Utility Styles */

@@ -8,12 +8,12 @@
 .contact-card {
   max-width: 720px;
   width: 100%;
-  background: #0f172a;
-  color: #f8fafc;
+  background: var(--surface);
+  color: var(--text-primary);
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25);
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
 }
 
 .contact-card h1 {
@@ -23,7 +23,7 @@
 
 .contact-card p {
   margin: 0 0 2rem;
-  color: rgba(248, 250, 252, 0.78);
+  color: var(--text-muted);
 }
 
 .contact-items {
@@ -34,12 +34,12 @@
 .contact-link {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #93c5fd;
+  color: var(--accent-soft);
   text-decoration: none;
 }
 
 .contact-link:hover {
-  color: #bfdbfe;
+  color: var(--accent);
 }
 
 .contact-links {
@@ -49,13 +49,13 @@
 }
 
 .contact-links a {
-  color: #f8fafc;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
 }
 
 .contact-links a:hover {
-  color: #93c5fd;
+  color: var(--accent-soft);
 }
 
 @media (max-width: 768px) {

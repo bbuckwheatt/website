@@ -15,7 +15,7 @@
 
 .about-hero p {
   font-size: 1.1rem;
-  color: rgba(15, 23, 42, 0.72);
+  color: var(--text-muted);
   max-width: 720px;
 }
 
@@ -26,11 +26,11 @@
 }
 
 .about-card {
-  background: #ffffff;
+  background: var(--surface);
   border-radius: 18px;
   padding: 2rem;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
 }
 
 .about-card h2 {

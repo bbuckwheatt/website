@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[881],{1881:(e,t,s)=>{s.r(t),s.d(t,{default:()=>c});var a=s(6540);const c=function(){return a.createElement("div",{className:"photo-gallery"})}}}]);

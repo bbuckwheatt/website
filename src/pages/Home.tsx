@@ -35,7 +35,7 @@ const Home: React.FC = () => {
       powerPreference: isMobile ? "low-power" : "high-performance"
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.3 : 1.75));
     container.appendChild(renderer.domElement);
 
     let model3D: THREE.Group | null = null;
@@ -177,8 +177,8 @@ const Home: React.FC = () => {
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
     directionalLight.position.set(10, 10, 5);
     directionalLight.castShadow = true;
-    directionalLight.shadow.mapSize.width = 2048;
-    directionalLight.shadow.mapSize.height = 2048;
+    directionalLight.shadow.mapSize.width = 1024;
+    directionalLight.shadow.mapSize.height = 1024;
     scene.add(directionalLight);
 
     const pointLight = new THREE.PointLight(0xffffff, 0.5, 100);
@@ -260,7 +260,7 @@ const Home: React.FC = () => {
     };
 
     // Post-processing setup with mobile optimizations
-    const renderTargetScale = isMobile ? 1 : 2; // Lower resolution on mobile
+    const renderTargetScale = isMobile ? 1 : 1.5; // Lower resolution on mobile/desktop balance
     const renderTarget = new THREE.WebGLRenderTarget(
       container.clientWidth * renderTargetScale,
       container.clientHeight * renderTargetScale,
@@ -280,7 +280,10 @@ const Home: React.FC = () => {
     postScene.add(postQuad);
 
     // Animation loop
+    let isAnimating = true;
+
     const animate = () => {
+      if (!isAnimating) return;
       animationId = requestAnimationFrame(animate);
 
       if (model3D) {
@@ -301,6 +304,16 @@ const Home: React.FC = () => {
 
     animate();
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        isAnimating = false;
+        if (animationId) cancelAnimationFrame(animationId);
+      } else if (!isAnimating) {
+        isAnimating = true;
+        animate();
+      }
+    };
+
     // Handle resize
     const handleResize = () => {
       const width = container.clientWidth;
@@ -317,6 +330,7 @@ const Home: React.FC = () => {
     };
 
     window.addEventListener('resize', handleResize);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     // Enhanced mouse and touch interaction - rotation only (no zoom)
     const mouse = new THREE.Vector2();
@@ -433,6 +447,7 @@ const Home: React.FC = () => {
         cancelAnimationFrame(animationId);
       }
       window.removeEventListener('resize', handleResize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       container.removeEventListener('mousedown', handleMouseDown);
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseup', handleMouseUp);

@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Modal,
+  ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalHeader,
@@ -33,53 +34,33 @@ function StopMotionStudioArea(): JSX.Element {
   if (screen == 'home') {
     // Home screen layout with instructions and navigation button
     return (
-      <Box backgroundColor={'white'} height={'900'}>
-        <VStack>
+      <Box backgroundColor={'white'} height="100%" width="100%">
+        <VStack spacing={6} align="stretch" padding={8}>
           {/* Header text */}
           <Box
-            paddingY={10}
-            paddingX={20}
             display={'flex'}
             alignItems={'center'}
             justifyContent={'center'}>
-            <Text fontSize={30}>Stop Motion Studio</Text>
+            <Text fontSize={32} fontWeight={600}>Stop Motion Studio</Text>
           </Box>
           {/* Button to navigate to the editor */}
-          <Button onClick={() => setScreen('studio')}>Go to editor</Button>
+          <Button colorScheme="blue" size="lg" alignSelf="center" onClick={() => setScreen('studio')}>
+            Go to editor
+          </Button>
           {/* Instructional text for users */}
-          <Box
-            paddingY={20}
-            paddingX={20}
-            display={'flex'}
-            alignItems={'center'}
-            justifyContent={'center'}>
-            <div style={{ marginTop: '30px' }}>
-              <Text fontSize={20}>
-                {' '}
-                - Use the panel on the left to add new shapes to the canvas.{' '}
-              </Text>
-              <Text fontSize={20}>
-                {' '}
-                - Add a new frame by using the &apos;Add Latest Frame&apos; button{' '}
-              </Text>
-              <Text fontSize={20}>
-                {' '}
-                - Traverse through added frames by using the arrow buttons{' '}
-              </Text>
-              <Text fontSize={20}> - Use the play button to play animations. </Text>
-              <Text fontSize={20}>
-                {' '}
-                - Load an existing project into the canvas using &apos;Load Project&apos;{' '}
-              </Text>
-              <Text fontSize={20}>
-                {' '}
-                - Use &apos;Save Project&apos; to continue working in future sessions.{' '}
-              </Text>
-              <Text fontSize={20}>
-                {' '}
-                - Download your animation as a GIF using the &apos;Export Movie&apos; button{' '}
-              </Text>
-            </div>
+          <Box>
+            <Text fontSize={18} fontWeight={600} marginBottom={2}>
+              Quick start
+            </Text>
+            <VStack align="start" spacing={2}>
+              <Text fontSize={16}>• Use the left panel to add new shapes.</Text>
+              <Text fontSize={16}>• Add a new frame with “Add Latest Frame”.</Text>
+              <Text fontSize={16}>• Use the arrow buttons to navigate frames.</Text>
+              <Text fontSize={16}>• Hit play to preview the animation.</Text>
+              <Text fontSize={16}>• Load projects with “Load Project”.</Text>
+              <Text fontSize={16}>• Save work with “Save Project”.</Text>
+              <Text fontSize={16}>• Export as a GIF with “Export Movie”.</Text>
+            </VStack>
           </Box>
         </VStack>
       </Box>
@@ -97,12 +78,14 @@ function StopMotionStudioArea(): JSX.Element {
  */
 const StopMotionStudioModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false}>
+    <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false} isCentered size="full" scrollBehavior="inside">
       <ModalOverlay />
-      <ModalContent height='900px' maxW='1600px' maxH='900px'>
+      <ModalContent height="90vh" maxW="90vw" maxH="90vh" borderRadius="18px">
         <ModalHeader>Stop Motion Studio</ModalHeader>
         <ModalCloseButton />
-        <StopMotionStudioArea />
+        <ModalBody padding={0} overflowY="auto">
+          <StopMotionStudioArea />
+        </ModalBody>
       </ModalContent>
     </Modal>
   );

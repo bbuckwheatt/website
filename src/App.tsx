@@ -44,28 +44,30 @@ const App: React.FC = () => {
   return (
     <ErrorBoundary>
       <Router>
-        <Header />
-        <main>
-          <Suspense fallback={<Loading />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/hobbies" element={<Hobbies />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/gallery/iceland" element={<Iceland />} />
-              <Route path="/gallery/ireland" element={<Ireland />} />
-              <Route path="/gallery/italy" element={<Italy />} />
-              <Route path="/gallery/london" element={<London />} />
-              <Route path="/gallery/food" element={<Food />} />
-              <Route path="/gallery/meatball" element={<Meatball />} />
-              {/* 404 Route - must be last */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
+        <div className="app-shell">
+          <Header />
+          <main className="app-main">
+            <Suspense fallback={<Loading />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/hobbies" element={<Hobbies />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/gallery/iceland" element={<Iceland />} />
+                <Route path="/gallery/ireland" element={<Ireland />} />
+                <Route path="/gallery/italy" element={<Italy />} />
+                <Route path="/gallery/london" element={<London />} />
+                <Route path="/gallery/food" element={<Food />} />
+                <Route path="/gallery/meatball" element={<Meatball />} />
+                {/* 404 Route - must be last */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </main>
+          <Footer />
+        </div>
       </Router>
     </ErrorBoundary>
   );

@@ -12,10 +12,10 @@
     flex: 1;
     display: flex;
     align-items: flex-start;
-    padding: 4.5rem 3rem 2.5rem;
+    padding: 4rem 3rem 2rem;
     gap: 4rem;
     position: relative;
-    min-height: 80vh;
+    min-height: 70vh;
   }
   
   /* Main Content - Left Side */
@@ -147,7 +147,7 @@
   
   /* Demo Info Section - Lower on page */
   .demo-info-section {
-    padding: 3rem 2rem 4rem;
+    padding: 2.5rem 2rem 3rem;
     background: rgba(15, 23, 42, 0.04);
     border-top: 1px solid rgba(148, 163, 184, 0.2);
   }
@@ -209,7 +209,7 @@
   
   /* Gradient transition to footer */
   .gradient-transition {
-    height: 80px;
+    height: 50px;
     background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.05) 50%, rgba(15, 23, 42, 0.12) 100%);
   }
   

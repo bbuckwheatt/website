@@ -25,6 +25,21 @@
 
 import type { Metadata } from 'next';
 import Image from 'next/image';
+/*
+ * WHY we can import StopMotionLauncher directly (no dynamic({ ssr: false })):
+ *   StopMotionLauncher is a 'use client' component. Next.js serializes its
+ *   shell (the button markup) as a server-side placeholder — only the ref and
+ *   click handler hydrate on the client. The canvas-unsafe code lives inside
+ *   StopMotionStudioModal, which StopMotionLauncher loads with ssr: false via
+ *   its own dynamic() call. That inner dynamic() is what gates the canvas from
+ *   the server; we don't need another ssr: false at this level.
+ *
+ *   Contrast with ThreeScene: that component immediately runs WebGL code at
+ *   module-evaluation time, so even its shell cannot be server-rendered.
+ *   StopMotionLauncher renders only a <button> at the top level, which is
+ *   perfectly safe to SSR.
+ */
+import StopMotionLauncher from '@/components/StopMotionStudio/StopMotionLauncher';
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -129,12 +144,9 @@ export default function ProjectsPage() {
 // ─── ProjectCard ──────────────────────────────────────────────────────────────
 
 /*
- * ProjectCard is a Server Component sub-component — it's defined in this file
- * so we don't need a separate file, but it renders as part of the same static
- * HTML output. No 'use client' needed here either.
- *
- * The "Open studio" button for the Stop Motion Studio will be added in Phase 5
- * once the StopMotionLauncher Client Component is built.
+ * ProjectCard is a Server Component sub-component — defined in this file,
+ * renders as part of the same static HTML output. No 'use client' needed.
+ * The StopMotionLauncher inside it is the only client-side island on this page.
  */
 function ProjectCard({ project }: { project: Project }) {
   return (
@@ -183,12 +195,8 @@ function ProjectCard({ project }: { project: Project }) {
 
         {/* Links row — pushed to bottom of card via mt-auto on the parent */}
         <div className="flex gap-4 items-center flex-wrap mt-auto">
-          {/* "Open studio" button — Stop Motion launcher wired in Phase 5 */}
-          {project.openStudio && (
-            <span className="text-[var(--accent)] font-semibold text-[0.95rem] opacity-60 cursor-not-allowed" title="Coming soon">
-              Open studio
-            </span>
-          )}
+          {/* Stop Motion Studio launcher — Client Component; modal loaded with ssr: false */}
+          {project.openStudio && <StopMotionLauncher />}
           {project.liveUrl && (
             <a
               href={project.liveUrl}

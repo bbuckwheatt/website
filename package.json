@@ -9,8 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/gif.js": "^0.2.5",
     "@types/three": "^0.183.1",
     "framer-motion": "^12.38.0",
+    "gif.js": "^0.2.0",
     "konva": "^10.2.3",
     "next": "16.2.2",
     "next-themes": "^0.4.6",

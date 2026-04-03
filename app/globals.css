@@ -19,7 +19,15 @@
 /*
  ---break---
  */
-@custom-variant dark (&:is(.dark *));
+/*
+ * WHY [data-theme='dark'] instead of .dark:
+ *   next-themes is configured with attribute="data-theme" in providers.tsx,
+ *   so it sets data-theme="dark" on <html>, not class="dark".
+ *   This @custom-variant makes Tailwind's `dark:` utility prefix work with
+ *   our attribute-based theme system, so shadcn components (which use dark:)
+ *   respond correctly to the theme toggle.
+ */
+@custom-variant dark (&:is([data-theme='dark'] *));
 
 /* ─── 2. Design tokens as Tailwind utilities ────────────────────────────── */
 /*
@@ -63,10 +71,16 @@
   --surface: #ffffff;
   --surface-strong: #0f172a;
 
-  /* Border and accent */
-  --border: oklch(0.922 0 0);
-  --accent: oklch(0.97 0 0);
+  /* Border and accent — our custom values (shadcn overwrote these during init) */
+  --border: rgba(148, 163, 184, 0.2);
+  --accent: #2563eb;
   --accent-soft: #93c5fd;
+  /*
+   * shadcn components use --border and --input from their own token set.
+   * We map them here so shadcn UI components get consistent styling while
+   * our existing site styles still use our custom values above.
+   */
+  --input: oklch(0.922 0 0);
 
   /* Shadows */
   --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.08);
@@ -127,6 +141,9 @@
   --shadow-soft: 0 18px 40px rgba(2, 6, 23, 0.5);
   --shadow-strong: 0 20px 45px rgba(2, 6, 23, 0.7);
   --chip-bg: rgba(15, 23, 42, 0.7);
+  /* shadcn background/foreground tokens for dark mode */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
 }
 
 /* ─── 5. Base element styles ────────────────────────────────────────────── */
@@ -227,7 +244,12 @@ a {
 /*
  ---break---
  */
-.dark {
+/*
+ * Shadcn dark mode tokens — merged into our [data-theme='dark'] selector
+ * so the single attribute toggle drives both our custom variables and
+ * shadcn component variables simultaneously.
+ */
+[data-theme='dark'] {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -267,10 +289,15 @@ a {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
-  }
+  /*
+   * WHY body and html rules are removed here:
+   *   Shadcn's init adds `bg-background text-foreground` to body and
+   *   `font-sans` to html. We intentionally omit these because:
+   *   - body background is set via `var(--page-bg)` in our own base styles
+   *     above (a gradient that changes between light/dark via CSS variables)
+   *   - body color is `var(--text-primary)` not `var(--background)`
+   *   - html font is `var(--font-body)` set via next/font
+   *   Shadcn components don't need body-level overrides — they apply their
+   *   own bg/text tokens at the component level via Tailwind utilities.
+   */
 }

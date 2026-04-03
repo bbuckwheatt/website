@@ -1,26 +1,145 @@
+/*
+ * globals.css — Global styles and design token system
+ *
+ * Structure:
+ *   1. Tailwind v4 import — gives us all utility classes
+ *   2. @theme block — registers CSS variables as Tailwind tokens
+ *      (so `text-text-primary` resolves to var(--text-primary), which
+ *       automatically switches value between light and dark mode)
+ *   3. :root — light mode CSS variable values
+ *   4. [data-theme='dark'] — dark mode overrides
+ *      (the `data-theme` attribute is toggled by next-themes on <html>)
+ *   5. Base element styles — typography defaults, resets
+ */
+
+/* ─── 1. Tailwind v4 ─────────────────────────────────────────────────────── */
 @import "tailwindcss";
 
+/* ─── 2. Design tokens as Tailwind utilities ────────────────────────────── */
+/*
+ * @theme lets us register CSS variables as first-class Tailwind tokens.
+ * After this block, `className="text-text-primary"` compiles to
+ * `color: var(--text-primary)` which reads the :root or [data-theme='dark']
+ * value automatically — no separate Tailwind dark: variant needed.
+ *
+ * Font variables (--font-display, --font-body) are injected by next/font
+ * in app/layout.tsx via CSS variable injection; we reference them here
+ * so the rest of the stylesheet can use them.
+ */
+@theme {
+  /* Color tokens */
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-border: var(--border);
+  --color-chip-bg: var(--chip-bg);
+
+  /* Font family tokens — values come from next/font CSS variables */
+  --font-display: var(--font-fraunces), serif;
+  --font-body: var(--font-space-grotesk), sans-serif;
+}
+
+/* ─── 3. Light mode tokens ──────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds — used as CSS gradients on body/sections */
+  --page-bg: linear-gradient(180deg, #f8fafc 0%, #eef2ff 60%, #f8fafc 100%);
+  --hero-bg: radial-gradient(circle at top left, #eef2ff 0%, #ffffff 45%, #f8fafc 100%);
+  --section-bg: rgba(15, 23, 42, 0.04);
+
+  /* Typography */
+  --text-primary: #0f172a;
+  --text-muted: rgba(15, 23, 42, 0.72);
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-strong: #0f172a;
+
+  /* Border and accent */
+  --border: rgba(148, 163, 184, 0.2);
+  --accent: #2563eb;
+  --accent-soft: #93c5fd;
+
+  /* Shadows */
+  --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.08);
+  --shadow-strong: 0 25px 60px rgba(15, 23, 42, 0.25);
+
+  /* Chip / tag backgrounds */
+  --chip-bg: #f8fafc;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── 4. Dark mode token overrides ─────────────────────────────────────── */
+/*
+ * next-themes sets `data-theme="dark"` on <html> when the user picks dark mode.
+ * Every CSS variable declared in :root is overridden here for dark mode.
+ * Because the @theme block uses var() references, every Tailwind token
+ * derived from these variables updates automatically — no extra work needed.
+ */
+[data-theme='dark'] {
+  --page-bg: radial-gradient(circle at top, #0b1120 0%, #0f172a 50%, #020617 100%);
+  --hero-bg: radial-gradient(circle at top left, #111827 0%, #0b1120 45%, #0f172a 100%);
+  --section-bg: rgba(148, 163, 184, 0.08);
+  --text-primary: #f8fafc;
+  --text-muted: rgba(226, 232, 240, 0.75);
+  --surface: #111827;
+  --surface-strong: #0b1120;
+  --border: rgba(148, 163, 184, 0.25);
+  --accent: #38bdf8;
+  --accent-soft: #7dd3fc;
+  --shadow-soft: 0 18px 40px rgba(2, 6, 23, 0.5);
+  --shadow-strong: 0 20px 45px rgba(2, 6, 23, 0.7);
+  --chip-bg: rgba(15, 23, 42, 0.7);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── 5. Base element styles ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* next/font injects --font-space-grotesk as a CSS variable on <html>.
+   * We reference it here so every element inherits the correct font. */
+  font-family: var(--font-body);
+  background: var(--page-bg);
+  color: var(--text-primary);
+  min-height: 100%;
+}
+
+/* Headings use the display (serif) font */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+/* App shell — sticky footer pattern.
+ * The root <div> wrapping Header + <main> + Footer uses flex column.
+ * <main> gets flex: 1 so it grows to fill available space,
+ * pushing the footer to the bottom even on short pages. */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
+/* Link color inherits from parent so we can control it via text-* tokens */
+a {
+  color: inherit;
+}
+
+/* Accessible focus ring — visible on keyboard nav, not on click */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }

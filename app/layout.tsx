@@ -45,11 +45,15 @@
  */
 
 import type { Metadata } from 'next';
-import { Fraunces, Space_Grotesk } from 'next/font/google';
+import { Fraunces, Space_Grotesk, Geist } from 'next/font/google';
 import { Providers } from './providers';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css';
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 /*
  * next/font/google downloads these fonts at build time and generates CSS variable
@@ -117,7 +121,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fraunces.variable} ${spaceGrotesk.variable}`}
+      className={cn(fraunces.variable, spaceGrotesk.variable, "font-sans", geist.variable)}
     >
       <body>
         {/*

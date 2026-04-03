@@ -1,6 +1,19 @@
-# Dependency directories
+# Dependencies
 node_modules/
-jspm_packages/
-node_modules
+
+# Build output
 dist/
+.next/
+
+# OS
 .DS_Store
+
+# Local editor/tool state (not project files)
+.claude/
+
+# Environment variables (never commit secrets)
+.env
+.env*.local
+
+# TypeScript build info
+*.tsbuildinfo

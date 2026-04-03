@@ -1,35 +1,37 @@
-name: Deploy to GitHub Pages
+# CI — build check on every PR
+#
+# Vercel handles production and preview deployments automatically via its
+# GitHub integration (configured in the Vercel dashboard). This workflow
+# exists only to catch TypeScript and build errors before merge — it does
+# NOT deploy anywhere.
+#
+# WHY we removed the GitHub Pages deploy:
+#   Vercel is required for PPR (Partial Pre-rendering / Cache Components).
+#   GitHub Pages serves only pre-built static files with no server runtime,
+#   so it cannot stream the HTML that PPR depends on.
+
+name: CI
 
 on:
   push:
-    branches:
-      - main
-
-permissions:
-  contents: write  # Needed to push to gh-pages
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build the site
+      - name: Build
         run: npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          cname: cam-powell.com

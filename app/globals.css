@@ -85,8 +85,8 @@
   /* Chip / tag backgrounds */
   --chip-bg: #f4f4f5;
 
-  /* BGPattern stripe fill — subtle dark lines on white */
-  --bg-pattern-fill: rgba(9, 9, 11, 0.055);
+  /* BGPattern stripe fill — visible dark lines on white */
+  --bg-pattern-fill: rgba(9, 9, 11, 0.1);
 
   --input: oklch(0.922 0 0);
   --background: oklch(1 0 0);
@@ -142,7 +142,7 @@
   --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.35);
   --shadow-strong: 0 16px 40px rgba(0, 0, 0, 0.55);
   --chip-bg: #27272a;
-  --bg-pattern-fill: rgba(250, 250, 250, 0.05);
+  --bg-pattern-fill: rgba(250, 250, 250, 0.08);
   --background: #09090b;
   --foreground: #fafafa;
 }
@@ -267,13 +267,12 @@ html {
  ---break---
  */
 /*
- * Shadcn dark mode tokens — merged into our [data-theme='dark'] selector
- * so the single attribute toggle drives both our custom variables and
- * shadcn component variables simultaneously.
+ * Shadcn component tokens for dark mode. --accent, --border, --background,
+ * --foreground are intentionally absent here — they're set in the first
+ * [data-theme='dark'] block above. If they appeared here they would override
+ * our custom values (last declaration wins in CSS).
  */
 [data-theme='dark'] {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -284,10 +283,9 @@ html {
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  /* --accent and --border intentionally omitted — set in our [data-theme='dark'] block above */
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.87 0 0);

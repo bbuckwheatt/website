@@ -1,65 +1,69 @@
 /*
- * AsciiPortrait.tsx — ASCII art portrait rendered from public/portrait.txt
+ * AsciiPortrait.tsx — ASCII art portrait, server-rendered from portrait.txt
  *
- * SERVER COMPONENT — reads the file at build time via Node.js fs.
- * No client JS, no fetch request at runtime. The text ships as static HTML.
+ * SERVER COMPONENT — reads the file at build time, zero client JS.
  *
- * SIZING MATH:
- *   portrait.txt is 136 lines × ~250 chars per line.
- *   At font-size: 6px monospace, natural dimensions are:
- *     width  ≈ 250 chars × 3.6px/char = 900px
- *     height ≈ 136 lines × 6px × 1.1  = 898px
- *   scale(0.555) brings both to ≈ 500px, fitting the container.
+ * APPROACH: render at a legible font size and crop to the face center,
+ * rather than scaling down to illegibility.
  *
- * WHY transform: scale() instead of tiny font-size:
- *   Very small font sizes (< 5px) can render inconsistently across browsers
- *   and OS font rendering pipelines. Scaling a normally-sized element is
- *   more predictable — the browser paints at 6px then composites at 0.555×.
+ * SIZING MATH (at font-size 7px, monospace):
+ *   Character width  ≈ 0.6 × 7px = 4.2px
+ *   Character height = 7px × line-height 1.0 = 7px
  *
- * WHY aria-label + role="img":
- *   Screen readers would otherwise attempt to read 34KB of ASCII characters.
- *   role="img" with an aria-label treats the block as a single decorative image.
+ *   Full portrait: 250 chars × 4.2px = 1050px wide
+ *                  136 lines × 7px   = 952px tall
+ *
+ *   Container: 480px × 480px
+ *   Visible chars: 480 / 4.2 ≈ 114 chars  (center slice of the 250-wide portrait)
+ *   Visible lines: 480 / 7   ≈ 68 lines
+ *
+ *   Horizontal offset to center: (1050 - 480) / 2 = 285px → margin-left: -285px
+ *   Vertical offset (face is upper-center): margin-top: -70px shows lines 10-78
+ *
+ * WHY margin offsets instead of transform:
+ *   transform: translate() on the pre would shift it out of the container's
+ *   clipping region unless overflow is hidden on a positioned ancestor.
+ *   Negative margins pull the pre into position before the container clips it.
  */
 
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
 export default function AsciiPortrait() {
-  // Runs in Node.js at build time — process.cwd() is the project root
   const portrait = readFileSync(join(process.cwd(), 'public', 'portrait.txt'), 'utf-8');
 
   return (
     <div
       className="
-        relative flex-shrink-0
-        w-[500px] h-[500px]
+        flex-shrink-0 relative
+        w-[480px] h-[480px]
         overflow-hidden
         rounded-[20px]
         border border-[var(--border)]
         bg-[var(--surface)]
         shadow-[var(--shadow-strong)]
-        max-lg:w-[420px] max-lg:h-[420px]
-        max-md:w-[min(85vw,400px)] max-md:h-[min(85vw,400px)]
+        max-lg:w-[400px] max-lg:h-[400px]
+        max-md:w-[min(85vw,380px)] max-md:h-[min(85vw,380px)]
       "
     >
       <pre
         role="img"
         aria-label="ASCII art portrait of Cameron Powell"
         style={{
-          fontSize: '6px',
-          lineHeight: 1.1,
+          fontSize: '7px',
+          lineHeight: 1.0,
           margin: 0,
           padding: 0,
+          /* Crop to face center: shift left by half of (full width - container width) */
+          marginLeft: '-285px',
+          /* Shift down slightly to frame the face, not the top of the portrait */
+          marginTop: '-70px',
           fontFamily: 'ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace',
-          color: 'var(--text-primary)',
-          opacity: 0.7,
-          /* Scale down to fit the container. transform-origin: top left means
-           * the element shrinks toward the top-left corner of the container. */
-          transform: 'scale(0.555)',
-          transformOrigin: 'top left',
+          /* Emerald accent color — matches the site's theme and reads as "terminal" */
+          color: 'var(--accent)',
+          opacity: 0.75,
           whiteSpace: 'pre',
           userSelect: 'none',
-          /* Prevent the pre from wrapping — ASCII art requires exact character positions */
           overflowWrap: 'normal',
           wordBreak: 'normal',
         }}

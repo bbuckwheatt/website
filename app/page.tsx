@@ -46,9 +46,9 @@ export default function HomePage() {
             self-start
             px-3 py-1 rounded-full
             text-[0.75rem] font-semibold tracking-widest uppercase
-            text-[var(--accent)] bg-[rgba(37,99,235,0.08)]
-            border border-[rgba(37,99,235,0.2)]
-            dark:bg-[rgba(56,189,248,0.08)] dark:border-[rgba(56,189,248,0.2)]
+            text-[var(--accent)] bg-[rgba(16,185,129,0.08)]
+            border border-[rgba(16,185,129,0.2)]
+            dark:bg-[rgba(52,211,153,0.08)] dark:border-[rgba(52,211,153,0.2)]
             max-md:self-center
           ">
             Lead Solutions Engineer
@@ -77,9 +77,9 @@ export default function HomePage() {
                 px-6 py-2.5 rounded-full no-underline
                 font-semibold text-sm text-white
                 bg-[var(--accent)]
-                shadow-[0_8px_20px_rgba(37,99,235,0.3)]
+                shadow-[0_8px_20px_rgba(16,185,129,0.25)]
                 transition-all duration-200
-                hover:-translate-y-px hover:shadow-[0_12px_24px_rgba(37,99,235,0.4)]
+                hover:-translate-y-px hover:shadow-[0_12px_24px_rgba(16,185,129,0.35)]
                 motion-reduce:hover:translate-y-0
               "
             >

@@ -84,7 +84,7 @@ export default function Header() {
                 text-[0.875rem] font-medium no-underline
                 transition-all duration-200
                 ${isActive(href)
-                  ? 'text-[var(--accent)] bg-[rgba(37,99,235,0.08)] dark:bg-[rgba(56,189,248,0.1)]'
+                  ? 'text-[var(--accent)] bg-[rgba(16,185,129,0.1)] dark:bg-[rgba(52,211,153,0.1)]'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[rgba(148,163,184,0.1)]'
                 }
               `}

@@ -5,10 +5,9 @@
  * dynamic island — it loads client-side via Suspense.
  */
 
-import { Suspense } from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import ThreeSceneWrapper from '@/components/ThreeSceneWrapper';
+import AsciiPortrait from '@/components/AsciiPortrait';
 
 export const metadata: Metadata = {
   title: 'Cameron Powell — Lead Solutions Engineer',
@@ -103,29 +102,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Three.js scene — right */}
-        <div className="
-          flex-shrink-0
-          max-md:order-1 max-md:w-full max-md:flex max-md:justify-center
-        ">
-          <Suspense
-            fallback={
-              <div className="
-                w-[min(38vw,540px)] h-[min(38vw,540px)]
-                min-w-[280px] min-h-[280px]
-                rounded-[24px]
-                border border-[var(--border)]
-                bg-[var(--surface-strong)]
-                shadow-[var(--shadow-strong)]
-                flex items-center justify-center
-                max-md:w-[min(80vw,380px)] max-md:h-[min(80vw,380px)]
-              ">
-                <div className="w-8 h-8 rounded-full border-2 border-[var(--accent)] border-t-transparent animate-spin" />
-              </div>
-            }
-          >
-            <ThreeSceneWrapper />
-          </Suspense>
+        {/* ASCII portrait — right */}
+        <div className="flex-shrink-0 max-md:order-1 max-md:w-full max-md:flex max-md:justify-center">
+          <AsciiPortrait />
         </div>
       </section>
 

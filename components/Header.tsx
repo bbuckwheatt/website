@@ -96,13 +96,16 @@ export default function Header() {
       </div>
 
       {/* Right: theme toggle */}
+      {/* min-w/min-h-[44px] satisfies the 44×44px minimum touch target requirement.
+          The visible button is smaller; the min dimensions ensure it's always
+          tappable on mobile without shifting the layout. */}
       <button
         type="button"
         onClick={toggleTheme}
         aria-label="Toggle light/dark theme"
         className="
           flex items-center justify-center
-          w-8 h-8 rounded-lg cursor-pointer
+          w-9 h-9 min-w-[44px] min-h-[44px] rounded-lg cursor-pointer
           text-[var(--text-muted)]
           border border-[var(--border)]
           bg-transparent

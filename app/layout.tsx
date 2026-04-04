@@ -49,6 +49,7 @@ import { Fraunces, Space_Grotesk, Geist } from 'next/font/google';
 import { Providers } from './providers';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { BGPattern } from '@/components/BGPattern';
 import './globals.css';
 import { cn } from "@/lib/utils";
 
@@ -130,9 +131,27 @@ export default function RootLayout({
          * It must wrap Header (which uses useTheme for the toggle) and all page content.
          */}
         <Providers>
-          <div className="app-shell">
+          <div className="app-shell relative">
+            {/*
+             * Skip link — keyboard users can jump past the nav directly to main content.
+             * Visually hidden until focused (sr-only), then revealed with focus:not-sr-only.
+             * Without this, keyboard users must tab through every nav link on every page.
+             */}
+            <BGPattern variant="diagonal-stripes" mask="fade-y" size={28} />
+            <a
+              href="#main-content"
+              className="
+                sr-only focus:not-sr-only
+                focus:fixed focus:top-4 focus:left-1/2 focus:-translate-x-1/2
+                focus:z-[100] focus:px-4 focus:py-2 focus:rounded-full
+                focus:bg-[var(--accent)] focus:text-white focus:font-semibold focus:text-sm
+                focus:no-underline focus:shadow-lg
+              "
+            >
+              Skip to content
+            </a>
             <Header />
-            <main className="app-main">{children}</main>
+            <main id="main-content" className="app-main">{children}</main>
             <Footer />
           </div>
         </Providers>

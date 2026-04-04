@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Lead Solutions Engineer based in Boston. Building technical partnerships, enterprise implementations, and internal tooling.',
+    'Lead Solutions Engineer at CustomGPT.ai based in Boston. CS & Business grad from Northeastern, building technical partnerships and enterprise AI implementations.',
 };
 
 export default function AboutPage() {
@@ -17,8 +17,8 @@ export default function AboutPage() {
       <header className="mb-14">
         <h1 className="text-[2.8rem] mb-4 tracking-[-0.02em] max-sm:text-[2.2rem]">About</h1>
         <p className="text-[1.1rem] text-[var(--text-muted)] leading-[1.7] max-w-[620px]">
-          Lead Solutions Engineer based in Boston. I build technical partnerships that translate
-          ambitious goals into reliable products, integrations, and deployments.
+          Lead Solutions Engineer at CustomGPT.ai, based in Boston. I translate ambitious customer
+          goals into shipped enterprise solutions — across product, engineering, and sales.
         </p>
       </header>
 
@@ -30,10 +30,12 @@ export default function AboutPage() {
           <div>
             <h2 className="text-[1.1rem] font-semibold text-[var(--text-primary)] mb-3 mt-0">What I do</h2>
             <p className="text-[var(--text-muted)] leading-[1.8] m-0">
-              I lead the Solutions Engineering function at CustomGPT.ai, where I&apos;ve delivered
-              enterprise-grade implementations, led security reviews, and built internal tooling
-              that scales sales and customer success. My work blends systems thinking, technical
-              depth, and high-touch communication.
+              I created and scaled the Solutions Engineering function at CustomGPT.ai from scratch —
+              lifting demo-to-close rates by 15%, driving 100% PoC-to-annual conversion across 20+
+              enterprise clients, and leading a team of SEs, forward-deployed engineers, and data
+              scientists that has influenced $1M+ in sales revenue. My work spans solution
+              architecture, security reviews (SSO/SAML, vendor questionnaires), internal dashboards,
+              and deep technical partnership with product and engineering.
             </p>
           </div>
 
@@ -41,10 +43,11 @@ export default function AboutPage() {
             <h2 className="text-[1.1rem] font-semibold text-[var(--text-primary)] mb-3 mt-0">Technical focus</h2>
             <ul className="m-0 pl-0 list-none flex flex-col gap-2">
               {[
-                'AI automation, RAG workflows, and API integrations',
-                'Product implementation and solution architecture',
-                'Data tooling: dashboards, telemetry, and insights',
-                'Frontend engineering with React + TypeScript',
+                'AI/RAG pipelines, LangChain, OpenAI API — production automation at scale',
+                'Enterprise implementations: SSO/SAML, REST APIs, Zapier, Segment, Auth0',
+                'Internal tooling: Grafana, Retool, MySQL dashboards for ops and monitoring',
+                'Frontend engineering with React, TypeScript, and Node.js',
+                'Python data tooling with NumPy, Pandas, and SQL',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-[var(--text-muted)] leading-relaxed">
                   <span className="mt-[0.35rem] w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0" />
@@ -57,7 +60,7 @@ export default function AboutPage() {
           <div>
             <h2 className="text-[1.1rem] font-semibold text-[var(--text-primary)] mb-3 mt-0">Outside work</h2>
             <p className="text-[var(--text-muted)] leading-[1.8] m-0">
-              Strategy and role-playing games, science fiction, finance, fitness,
+              Strategy and role-playing games, science fiction, fantasy, finance, fitness,
               hiking, cooking, coffee, and pickleball.
             </p>
           </div>
@@ -69,7 +72,7 @@ export default function AboutPage() {
             { label: 'Role',       value: 'Lead Solutions Engineer' },
             { label: 'Company',    value: 'CustomGPT.ai' },
             { label: 'Location',   value: 'Boston, MA' },
-            { label: 'Education',  value: 'Northeastern University\nB.S. CS & Business, 2024\nCum Laude, 3.7 GPA' },
+            { label: 'Education',  value: 'Northeastern University\nB.S. CS & Business, Fintech\nCum Laude · 3.7 GPA · 2024' },
           ].map(({ label, value }) => (
             <div key={label} className="
               p-5 rounded-[16px]

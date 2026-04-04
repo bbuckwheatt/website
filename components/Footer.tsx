@@ -16,7 +16,7 @@ export default function Footer() {
           {[
             { label: 'GitHub',   href: 'https://github.com/bbuckwheatt' },
             { label: 'LinkedIn', href: 'https://linkedin.com/in/cameron-powell-' },
-            { label: 'Resume',   href: 'https://drive.google.com/file/d/1vkAo0ptWCJjsrb_eoZdmm7-QZS0xIr7_/view?usp=sharing' },
+            { label: 'Resume',   href: 'https://drive.google.com/file/d/14N1eUOGHw1jv0iAv-DnMfCyL1q_AE9vV/view?usp=sharing' },
           ].map(({ label, href }) => (
             <a
               key={label}

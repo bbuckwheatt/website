@@ -89,7 +89,7 @@ const PROJECTS: Project[] = [
     id: 3,
     title: 'This Website',
     description:
-      'A handcrafted portfolio built with Next.js, featuring a 3D interactive hero, PPR rendering, and a custom Tailwind design system.',
+      'A handcrafted portfolio built with Next.js App Router, featuring an ASCII art hero, a custom Tailwind v4 design system, and zero-JS server components.',
     imagePath: '/images/projects/web.png',
     imageAlt: 'Portfolio website preview',
     repoUrl: 'https://github.com/bbuckwheatt/website',

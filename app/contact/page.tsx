@@ -68,7 +68,7 @@ export default function ContactPage() {
               LinkedIn
             </a>
             <a
-              href="https://drive.google.com/file/d/1vkAo0ptWCJjsrb_eoZdmm7-QZS0xIr7_/view?usp=sharing"
+              href="https://drive.google.com/file/d/14N1eUOGHw1jv0iAv-DnMfCyL1q_AE9vV/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[var(--text-primary)] font-medium no-underline hover:text-[var(--accent-soft)] transition-colors duration-200"

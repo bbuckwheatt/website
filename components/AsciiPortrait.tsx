@@ -34,9 +34,7 @@ export default function AsciiPortrait() {
     <div
       className="
         flex-shrink-0 flex flex-col
-        w-[600px]
-        max-lg:w-[480px]
-        max-md:w-[min(90vw,480px)]
+        w-fit max-w-[min(90vw,620px)]
         rounded-[20px] overflow-hidden
         border border-[rgba(52,211,153,0.25)]
         shadow-[0_0_40px_rgba(52,211,153,0.08),var(--shadow-strong)]

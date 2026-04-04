@@ -158,12 +158,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  /* next/font injects --font-space-grotesk as a CSS variable on <html>.
-   * We reference it here so every element inherits the correct font. */
   font-family: var(--font-body);
-  background: var(--page-bg);
   color: var(--text-primary);
   min-height: 100%;
+  /* Background lives on .app-shell, not body — this lets BGPattern (z-index: -10
+   * inside app-shell) stay above the body while still behind page content.
+   * If background were on body, z-index: -10 would fall behind the body's paint,
+   * making the pattern completely invisible. */
+  background: transparent;
 }
 
 /* Headings use the display (serif) font */
@@ -181,6 +183,12 @@ h3 {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* Background declared here so BGPattern (absolute, z-index: -10 inside this
+   * element) renders above the body paint but behind page content.
+   * isolation: isolate creates a stacking context — z-index values on children
+   * are evaluated relative to this element, not the document root. */
+  background: var(--page-bg);
+  isolation: isolate;
 }
 
 .app-main {

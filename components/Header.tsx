@@ -54,9 +54,9 @@ export default function Header() {
       rounded-2xl
       border border-[var(--border)]
       bg-[rgba(248,250,252,0.88)]
-      dark:bg-[rgba(11,17,32,0.88)]
+      dark:bg-[rgba(9,9,11,0.88)]
       backdrop-blur-[14px]
-      shadow-[0_2px_12px_rgba(15,23,42,0.08)]
+      shadow-[0_2px_12px_rgba(0,0,0,0.06)]
       dark:shadow-[0_2px_12px_rgba(0,0,0,0.35)]
       max-sm:mx-3 max-sm:mt-2 max-sm:px-4 max-sm:flex-col max-sm:gap-3
     ">

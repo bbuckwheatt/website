@@ -50,11 +50,10 @@ export default function AsciiPortrait() {
         <span className="ml-3 text-[0.65rem] text-[rgba(255,255,255,0.3)] font-mono">portrait.txt</span>
       </div>
 
-      {/* Portrait scrollable area — max height limits the box, user scrolls to see all */}
-      <div
-        className="overflow-auto bg-[#0d0d0d]"
-        style={{ maxHeight: '560px' }}
-      >
+      {/* Portrait area — zoomed to fit full portrait without scrollbars.
+           zoom: 0.62 shrinks the natural ~900×860px pre down to ~558×533px,
+           which fits inside the 600px container with no overflow. */}
+      <div className="overflow-hidden bg-[#0d0d0d]">
         <pre
           role="img"
           aria-label="ASCII art portrait of Cameron Powell"
@@ -70,6 +69,7 @@ export default function AsciiPortrait() {
             overflowWrap: 'normal',
             wordBreak: 'normal',
             display: 'block',
+            zoom: 0.62,
           }}
         >
           {portrait}

@@ -120,18 +120,16 @@ const PROJECTS: Project[] = [
 
 export default function ProjectsPage() {
   return (
-    <section className="px-10 pt-[4.5rem] pb-24 max-w-[1200px] mx-auto max-sm:px-6 max-sm:pt-14 max-sm:pb-20">
+    <section className="px-10 pt-16 pb-24 max-w-[1200px] mx-auto max-sm:px-6 max-sm:pt-12 max-sm:pb-16">
 
-      {/* Page header */}
-      <header className="mb-10">
-        <h1 className="text-[2.6rem] mb-3 max-sm:text-[2.1rem]">Selected Projects</h1>
-        <p className="text-[var(--text-muted)] max-w-[640px]">
-          A mix of enterprise implementations, product integrations, and creative experiments.
+      <header className="mb-12">
+        <h1 className="text-[2.8rem] mb-3 tracking-[-0.02em] max-sm:text-[2.1rem]">Selected Projects</h1>
+        <p className="text-[var(--text-muted)] max-w-[540px] leading-relaxed">
+          Enterprise implementations, product integrations, and creative experiments.
         </p>
       </header>
 
-      {/* Project cards grid */}
-      <div className="grid gap-7" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+      <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))' }}>
         {PROJECTS.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
@@ -151,40 +149,44 @@ export default function ProjectsPage() {
 function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="
-      bg-[var(--surface)] rounded-[18px] overflow-hidden
-      border border-[var(--border)] shadow-[var(--shadow-soft)]
+      group
+      bg-[var(--surface)] rounded-[20px] overflow-hidden
+      border border-[var(--border)]
+      shadow-[0_2px_12px_rgba(15,23,42,0.06)]
       flex flex-col
+      transition-all duration-300
+      hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,23,42,0.12)]
+      dark:hover:shadow-[0_16px_40px_rgba(0,0,0,0.4)]
+      motion-reduce:hover:translate-y-0
     ">
-      {/* Project image */}
+      {/* Image with overlay on hover */}
       {project.imagePath && (
-        <div className="relative w-full h-[180px]">
+        <div className="relative w-full h-[200px] overflow-hidden bg-[var(--section-bg)]">
           <Image
             src={project.imagePath}
             alt={project.imageAlt}
             fill
-            // object-cover crops the image to fill the container without distortion
-            className="object-cover"
-            // sizes tells next/image the expected rendered width at each breakpoint,
-            // so it generates appropriately sized image variants (improves LCP).
+            className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       )}
 
-      {/* Card body */}
-      <div className="p-7 flex flex-col gap-4 flex-1">
-        <h3 className="m-0 text-[var(--text-primary)]">{project.title}</h3>
-        <p className="m-0 text-[var(--text-muted)] leading-relaxed">{project.description}</p>
+      {/* Body */}
+      <div className="p-6 flex flex-col gap-4 flex-1">
+        <h3 className="m-0 text-[1rem] font-semibold text-[var(--text-primary)] leading-snug">{project.title}</h3>
+        <p className="m-0 text-[0.875rem] text-[var(--text-muted)] leading-relaxed">{project.description}</p>
 
-        {/* Tech stack tags */}
-        <div className="flex gap-2 flex-wrap">
+        {/* Tags */}
+        <div className="flex gap-1.5 flex-wrap">
           {project.tags.map((tag) => (
             <span
               key={tag}
               className="
-                bg-[var(--chip-bg)] text-[var(--text-primary)]
-                px-3 py-1 rounded-full
-                text-xs font-semibold
+                px-2.5 py-0.5 rounded-full
+                text-[0.7rem] font-semibold
+                text-[var(--text-muted)]
+                bg-[var(--chip-bg)]
                 border border-[var(--border)]
               "
             >
@@ -193,18 +195,17 @@ function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
 
-        {/* Links row — pushed to bottom of card via mt-auto on the parent */}
-        <div className="flex gap-4 items-center flex-wrap mt-auto">
-          {/* Stop Motion Studio launcher — Client Component; modal loaded with ssr: false */}
+        {/* Links — pushed to bottom */}
+        <div className="flex gap-4 items-center flex-wrap mt-auto pt-2 border-t border-[var(--border)]">
           {project.openStudio && <StopMotionLauncher />}
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--accent)] font-semibold text-[0.95rem] no-underline hover:text-[var(--accent-soft)] transition-colors duration-200"
+              className="text-[var(--accent)] font-semibold text-[0.8rem] no-underline hover:opacity-70 transition-opacity duration-150 cursor-pointer"
             >
-              View live
+              View live ↗
             </a>
           )}
           {project.repoUrl && (
@@ -212,16 +213,16 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--accent)] font-semibold text-[0.95rem] no-underline hover:text-[var(--accent-soft)] transition-colors duration-200"
+              className="text-[var(--accent)] font-semibold text-[0.8rem] no-underline hover:opacity-70 transition-opacity duration-150 cursor-pointer"
             >
-              View code
+              View code ↗
             </a>
           )}
           {project.isPrivate && (
             <span className="
-              px-2 py-1 rounded-full
-              bg-[rgba(148,163,184,0.2)] text-[var(--text-muted)]
-              text-[0.75rem] font-semibold uppercase tracking-[0.04em]
+              px-2 py-0.5 rounded-full
+              bg-[rgba(148,163,184,0.15)] text-[var(--text-muted)]
+              text-[0.7rem] font-semibold uppercase tracking-wider
             ">
               Private
             </span>

@@ -196,6 +196,22 @@ a {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
+
+/*
+ * Respect prefers-reduced-motion — disable all transitions and animations for
+ * users who have enabled "Reduce motion" in their OS accessibility settings.
+ * This is a high-severity UX requirement (can cause vestibular disorders).
+ * The motion-reduce: Tailwind variant handles component-level opt-outs;
+ * this global rule is the safety net for anything we missed.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 /*
  ---break---
  */

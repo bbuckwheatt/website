@@ -19,9 +19,9 @@ const TECH_TAGS = [
   'Solutions Engineering',
   'APIs & Integrations',
   'RAG & Automation',
+  'Next.js & React',
+  'TypeScript & Python',
   'Data & Dashboards',
-  'React & TypeScript',
-  'Python & SQL',
 ] as const;
 
 export default function HomePage() {

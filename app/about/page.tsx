@@ -31,11 +31,11 @@ export default function AboutPage() {
             <h2 className="text-[1.1rem] font-semibold text-[var(--text-primary)] mb-3 mt-0">What I do</h2>
             <p className="text-[var(--text-muted)] leading-[1.8] m-0">
               I created and scaled the Solutions Engineering function at CustomGPT.ai from scratch —
-              lifting demo-to-close rates by 15%, driving 100% PoC-to-annual conversion across 20+
+              lifting demo-to-close rates by 15%, driving 90% PoC-to-annual conversion across 20+
               enterprise clients, and leading a team of SEs, forward-deployed engineers, and data
               scientists that has influenced $1M+ in sales revenue. My work spans solution
-              architecture, security reviews (SSO/SAML, vendor questionnaires), internal dashboards,
-              and deep technical partnership with product and engineering.
+              architecture, security reviews (SSO/SAML, vendor questionnaires), cross-platform data
+              consolidation into BigQuery, and deep technical partnership with product and engineering.
             </p>
           </div>
 
@@ -43,11 +43,11 @@ export default function AboutPage() {
             <h2 className="text-[1.1rem] font-semibold text-[var(--text-primary)] mb-3 mt-0">Technical focus</h2>
             <ul className="m-0 pl-0 list-none flex flex-col gap-2">
               {[
-                'AI/RAG pipelines, LangChain, OpenAI API — production automation at scale',
-                'Enterprise implementations: SSO/SAML, REST APIs, Zapier, Segment, Auth0',
-                'Internal tooling: Grafana, Retool, MySQL dashboards for ops and monitoring',
-                'Frontend engineering with React, TypeScript, and Node.js',
-                'Python data tooling with NumPy, Pandas, and SQL',
+                'AI/RAG pipelines — LangChain, Vercel AI SDK, Pinecone, pgvector',
+                'Full-stack: Next.js, React, TypeScript, Node.js',
+                'Enterprise integrations: SSO/SAML, REST APIs, Zapier, HubSpot',
+                'Data consolidation: BigQuery, Neon, MySQL, Retool dashboards',
+                'Python, SQL, and CI/CD on Azure, Docker, Vercel',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-[var(--text-muted)] leading-relaxed">
                   <span className="mt-[0.35rem] w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0" />

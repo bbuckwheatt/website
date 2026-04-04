@@ -65,16 +65,36 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     id: 1,
+    title: 'Open Source CustomGPT Chat Portal',
+    description:
+      'Production-ready chat frontend with Next.js, TypeScript, Neon Postgres, and Vercel AI SDK — streaming APIs, auth, tiered rate limiting, persistent chat history, and artifact rendering. Used by AEs to demo API extensibility alongside an OpenAI + pgvector RAG POC.',
+    imagePath: '/images/projects/web.png',
+    imageAlt: 'CustomGPT chat portal interface',
+    tags: ['Next.js', 'TypeScript', 'Vercel AI SDK', 'Neon', 'pgvector'],
+    isPrivate: true,
+  },
+  {
+    id: 2,
+    title: 'CustomGPT Demo Repository',
+    description:
+      'Reusable demo hub built with Next.js and Vercel, enabling AEs to self-serve technical demos across 60+ engagements without engineering involvement.',
+    imagePath: '/images/projects/web.png',
+    imageAlt: 'Demo repository hub',
+    tags: ['Next.js', 'Vercel', 'TypeScript'],
+    isPrivate: true,
+  },
+  {
+    id: 3,
     title: 'CustomGPT Support Automation Workflow',
     description:
-      'Built RAG-driven automation to streamline support triage and responses across multiple helpdesk platforms, reducing manual workload by 120+ hours per week.',
+      'RAG-driven automation pipelines to streamline support triage and responses across Zendesk, Freshdesk, Intercom, and Zapier — reducing manual workload by 120+ hours per week.',
     imagePath: '/images/projects/web.png',
     imageAlt: 'Automation dashboard visualization',
     tags: ['RAG', 'APIs', 'Automation', 'Python'],
     isPrivate: true,
   },
   {
-    id: 2,
+    id: 5,
     title: 'Stop Motion Animator',
     description:
       "Integrated a full stop-motion animation studio into Northeastern's Covey.Town platform with custom canvas tooling and figure-rotation algorithms.",
@@ -86,17 +106,17 @@ const PROJECTS: Project[] = [
     openStudio: true,
   },
   {
-    id: 3,
+    id: 6,
     title: 'This Website',
     description:
       'A handcrafted portfolio built with Next.js App Router, featuring an ASCII art hero, a custom Tailwind v4 design system, and zero-JS server components.',
     imagePath: '/images/projects/web.png',
     imageAlt: 'Portfolio website preview',
     repoUrl: 'https://github.com/bbuckwheatt/website',
-    tags: ['Next.js', 'TypeScript', 'Three.js', 'Tailwind'],
+    tags: ['Next.js', 'TypeScript', 'Tailwind'],
   },
   {
-    id: 4,
+    id: 7,
     title: 'Mars Rover Team — Robotics Software',
     description:
       "Contributed inverse-kinematics functionality for a 6-DOF robotic arm in Northeastern's Mars Rover team.",
@@ -105,7 +125,7 @@ const PROJECTS: Project[] = [
     tags: ['Python', 'Robotics', 'Kinematics'],
   },
   {
-    id: 5,
+    id: 8,
     title: 'Photo Editor & Collage Builder',
     description:
       'Designed a modular Java app for collage and photo filters using polymorphism and composition.',

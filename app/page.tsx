@@ -44,17 +44,9 @@ export default function HomePage() {
           max-md:order-2 max-md:max-w-none max-md:items-center max-md:text-center
         ">
 
-          {/* Role pill */}
-          <span className="
-            self-start
-            px-3 py-1 rounded-full
-            text-[0.75rem] font-semibold tracking-widest uppercase
-            text-[var(--accent)] bg-[rgba(16,185,129,0.08)]
-            border border-[rgba(16,185,129,0.2)]
-            dark:bg-[rgba(52,211,153,0.08)] dark:border-[rgba(52,211,153,0.2)]
-            max-md:self-center
-          ">
-            Lead Solutions Engineer
+          {/* Role — terminal style */}
+          <span className="self-start max-md:self-center font-mono text-[0.8rem] text-[var(--accent)] tracking-wide">
+            <span className="opacity-50 mr-1">{'>'}</span>lead_solutions_engineer
           </span>
 
           {/* Name */}

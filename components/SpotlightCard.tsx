@@ -89,7 +89,7 @@ export function SpotlightCard({ children, className }: SpotlightCardProps) {
       onPointerMove={handlePointerMove}
       className={cn('relative', className)}
       style={{
-        '--radius': '20',
+        '--radius': '2',
         '--border': '1.5',
         '--border-size': 'calc(var(--border, 1.5) * 1px)',
         '--spotlight-size': '220px',

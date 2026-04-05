@@ -30,8 +30,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <SpotlightCard className="
       group
-      bg-[var(--surface)] rounded-[20px] overflow-hidden
-      border border-[var(--border)]
+      bg-[var(--surface)] overflow-hidden
       shadow-[0_2px_12px_rgba(15,23,42,0.06)]
       flex flex-col
       transition-all duration-300
@@ -67,7 +66,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <span
               key={tag}
               className="
-                px-2.5 py-0.5 rounded-full
+                px-2.5 py-0.5 rounded-none
                 text-[0.7rem] font-semibold
                 text-[var(--text-muted)]
                 bg-[var(--chip-bg)]
@@ -104,7 +103,7 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
           {project.isPrivate && (
             <span className="
-              px-2 py-0.5 rounded-full
+              px-2 py-0.5 rounded-none
               bg-[rgba(148,163,184,0.15)] text-[var(--text-muted)]
               text-[0.7rem] font-semibold uppercase tracking-wider
             ">

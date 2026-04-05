@@ -28,7 +28,7 @@ export default function ContactPage() {
       <div className="
         max-w-[720px] w-full
         bg-[var(--surface)] text-[var(--text-primary)]
-        p-12 rounded-[20px]
+        p-12
         shadow-[var(--shadow-soft)] border border-[var(--border)]
         max-sm:p-9 max-xs:p-6
       ">

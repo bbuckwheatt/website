@@ -67,23 +67,25 @@ export default function HomePage() {
             <Link
               href="/projects"
               className="
-                inline-flex items-center justify-center
-                px-6 py-2.5 rounded-full no-underline
+                relative group inline-flex items-center justify-center
+                px-6 py-2.5 no-underline
                 font-semibold text-sm text-white
-                bg-[var(--accent)]
+                bg-[var(--accent)] border border-emerald-500/40
                 shadow-[0_8px_20px_rgba(16,185,129,0.25)]
                 transition-all duration-200
                 hover:-translate-y-px hover:shadow-[0_12px_24px_rgba(16,185,129,0.35)]
                 motion-reduce:hover:translate-y-0
               "
             >
+              <span className="absolute h-px opacity-0 group-hover:opacity-100 transition-all duration-500 inset-x-0 top-0 bg-gradient-to-r w-3/4 mx-auto from-transparent via-white/60 to-transparent" />
               View projects
+              <span className="absolute h-px group-hover:opacity-40 opacity-0 transition-all duration-500 inset-x-0 -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-white/60 to-transparent" />
             </Link>
             <Link
               href="/contact"
               className="
-                inline-flex items-center justify-center
-                px-6 py-2.5 rounded-full no-underline
+                relative group inline-flex items-center justify-center
+                px-6 py-2.5 no-underline
                 font-semibold text-sm text-[var(--text-primary)]
                 border border-[var(--border)]
                 bg-[var(--surface)]
@@ -91,7 +93,9 @@ export default function HomePage() {
                 hover:bg-[rgba(148,163,184,0.12)] hover:border-[rgba(148,163,184,0.4)]
               "
             >
+              <span className="absolute h-px opacity-0 group-hover:opacity-100 transition-all duration-500 inset-x-0 top-0 bg-gradient-to-r w-3/4 mx-auto from-transparent dark:via-emerald-400 via-emerald-500 to-transparent" />
               Get in touch
+              <span className="absolute h-px group-hover:opacity-30 opacity-0 transition-all duration-500 inset-x-0 -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent dark:via-emerald-400 via-emerald-500 to-transparent" />
             </Link>
           </div>
         </div>
@@ -123,7 +127,7 @@ export default function HomePage() {
               <span
                 key={tag}
                 className="
-                  px-4 py-1.5 rounded-full
+                  px-4 py-1.5
                   text-[0.8rem] font-semibold
                   text-[var(--text-primary)]
                   bg-[var(--chip-bg)]

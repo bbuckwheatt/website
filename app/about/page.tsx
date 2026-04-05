@@ -75,7 +75,7 @@ export default function AboutPage() {
             { label: 'Education',  value: 'Northeastern University\nB.S. CS & Business, Fintech\nCum Laude · 3.7 GPA · 2024' },
           ].map(({ label, value }) => (
             <div key={label} className="
-              p-5 rounded-[16px]
+              p-5
               bg-[var(--surface)] border border-[var(--border)]
               shadow-[0_2px_8px_rgba(15,23,42,0.04)]
             ">

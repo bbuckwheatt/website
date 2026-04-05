@@ -43,15 +43,19 @@ export default function StopMotionLauncher() {
     <>
       <button
         className="
-          inline-flex items-center justify-center
-          px-6 py-2.5 rounded-full
+          relative group inline-flex items-center justify-center
+          px-6 py-2.5
           bg-[var(--accent)] text-white font-semibold text-sm
-          shadow-[0_8px_20px_rgba(37,99,235,0.25)]
-          hover:opacity-90 transition-opacity cursor-pointer
+          border border-emerald-500/40
+          shadow-[0_8px_20px_rgba(16,185,129,0.25)]
+          hover:-translate-y-px hover:shadow-[0_12px_24px_rgba(16,185,129,0.35)]
+          transition-all duration-200 cursor-pointer
         "
         onClick={() => modalRef.current?.open()}
       >
+        <span className="absolute h-px opacity-0 group-hover:opacity-100 transition-all duration-500 inset-x-0 top-0 bg-gradient-to-r w-3/4 mx-auto from-transparent via-white/60 to-transparent" />
         Open studio
+        <span className="absolute h-px group-hover:opacity-40 opacity-0 transition-all duration-500 inset-x-0 -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-white/60 to-transparent" />
       </button>
 
       {/*

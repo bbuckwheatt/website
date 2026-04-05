@@ -20,7 +20,7 @@ export function LampHero() {
   return (
     <div
       className="relative flex w-full flex-col items-center justify-end overflow-hidden"
-      style={{ height: '220px' }}
+      style={{ height: '220px', paddingTop: '60px' }}
       aria-hidden="true"
     >
       {/* Scale-y stretches the beams for a more dramatic cone */}

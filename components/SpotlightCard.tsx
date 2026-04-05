@@ -37,16 +37,16 @@ const GLOW_CSS = `
   background-image: radial-gradient(
     calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75)
     at calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px),
-    hsl(160 80% 50% / 0.85),
+    hsl(160 80% 45% / 1),
     transparent 100%
   );
-  filter: brightness(2);
+  filter: brightness(1.6);
 }
 [data-spotlight]::after {
   background-image: radial-gradient(
     calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5)
     at calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px),
-    hsl(0 100% 100% / 0.5),
+    hsl(160 60% 70% / 0.7),
     transparent 100%
   );
 }
@@ -93,7 +93,7 @@ export function SpotlightCard({ children, className }: SpotlightCardProps) {
         '--border-size': 'calc(var(--border, 1.5) * 1px)',
         '--spotlight-size': '220px',
         backgroundImage:
-          'radial-gradient(220px 220px at calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px), hsl(160 80% 50% / 0.06), transparent)',
+          'radial-gradient(220px 220px at calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px), hsl(160 80% 50% / 0.18), transparent)',
         position: 'relative',
         touchAction: 'none',
       } as React.CSSProperties}

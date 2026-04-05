@@ -24,6 +24,7 @@ const PROJECTS: Project[] = [
       'Production-ready chat frontend that wraps CustomGPT agents as standalone interfaces — built with Next.js, Vercel AI SDK, Neon Postgres, and Auth.js. Features token-by-token streaming, persistent chat history, tiered rate limiting, rich artifacts (text, code, spreadsheets), and voice I/O.',
     imagePath: '/images/projects/chat-frontend.png',
     imageAlt: 'CustomGPT chat portal interface',
+    repoUrl: 'https://github.com/bbuckwheatt/customgpt-custom-frontend',
     tags: ['Next.js', 'Vercel AI SDK', 'Neon', 'Auth.js', 'TypeScript'],
     isPrivate: true,
   },

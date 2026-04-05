@@ -31,10 +31,12 @@ export default function HomePage() {
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="
-        flex items-center gap-16 px-12 pt-20 pb-16 relative min-h-[85vh]
-        max-lg:gap-10 max-md:flex-col max-md:px-8 max-md:pt-14 max-md:pb-10 max-md:min-h-0
+        flex justify-center items-center px-12 pt-20 pb-16 relative min-h-[85vh]
+        max-md:px-8 max-md:pt-14 max-md:pb-10 max-md:min-h-0
         max-sm:px-6 max-sm:pt-10 max-sm:pb-8
       ">
+        {/* Centered content wrapper — caps total width so it doesn't sprawl on ultrawide */}
+        <div className="flex items-center gap-16 w-full max-w-[1100px] max-lg:gap-10 max-md:flex-col">
 
         {/* Text — left */}
         <div className="
@@ -106,6 +108,7 @@ export default function HomePage() {
         <div className="flex-shrink-0 max-md:order-1 max-md:w-full max-md:flex max-md:justify-center">
           <AsciiPortrait />
         </div>
+        </div>{/* end centered content wrapper */}
       </section>
 
       {/* ── Focus strip ─────────────────────────────────────────────────── */}

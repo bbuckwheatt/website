@@ -71,6 +71,7 @@ export function SpotlightCard({ children, className }: SpotlightCardProps) {
   }, []);
 
   function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
+    if (e.pointerType === 'touch') return;
     const el = cardRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -95,7 +96,7 @@ export function SpotlightCard({ children, className }: SpotlightCardProps) {
         backgroundImage:
           'radial-gradient(220px 220px at calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px), hsl(160 80% 50% / 0.18), transparent)',
         position: 'relative',
-        touchAction: 'none',
+        touchAction: 'pan-y',
       } as React.CSSProperties}
     >
       {children}

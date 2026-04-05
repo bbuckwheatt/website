@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+      },
+    ],
+  },
+
   // Turbopack root configuration.
   // Explicitly sets the project root so Turbopack doesn't get confused when
   // there are multiple package-lock.json files in parent directories.

@@ -8,6 +8,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import AsciiPortrait from '@/components/AsciiPortrait';
+import { ScrambleName } from '@/components/ScrambleName';
 
 export const metadata: Metadata = {
   title: 'Cameron Powell — Lead Solutions Engineer',
@@ -55,13 +56,12 @@ export default function HomePage() {
           </span>
 
           {/* Name */}
-          <h1 className="
+          <ScrambleName className="
             text-[3.8rem] font-bold leading-[1.0] tracking-[-0.03em]
             text-[var(--text-primary)]
             max-lg:text-[3.2rem] max-md:text-[2.8rem] max-sm:text-[2.2rem]
-          ">
-            Cameron<br />Powell
-          </h1>
+            m-0
+          " />
 
           <p className="text-[1.05rem] text-[var(--text-muted)] leading-[1.75] max-w-[500px] max-sm:text-[0.95rem]">
             I build high-trust technical partnerships that turn complex customer goals into

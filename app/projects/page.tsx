@@ -1,45 +1,14 @@
 /*
- * projects/page.tsx — Projects portfolio page
+ * projects/page.tsx — Projects portfolio page (Server Component shell)
  *
- * SERVER COMPONENT for the page shell and static project list.
- *
- * WHY THE PAGE IS A SERVER COMPONENT BUT USES CLIENT CHILDREN:
- *   The project list data is hardcoded — it never changes at runtime.
- *   The page shell and all the static card content can be Server Component HTML.
- *
- *   The one interactive piece is the Stop Motion Studio modal (opens on button click).
- *   Rather than making the entire page a Client Component just for one button,
- *   we import <StopMotionLauncher> — a small Client Component that owns only the
- *   open/close state and the dynamic import of the heavy modal. This keeps the
- *   majority of this page as static HTML.
- *
- * PROJECT IMAGES:
- *   In the Webpack SPA, images were imported via file-loader and rendered with <img>.
- *   Here, we use Next.js <Image> which: auto-converts to WebP/AVIF, lazy-loads by
- *   default, and prevents layout shift by knowing dimensions at build time.
- *   Images are stored in the public/ directory and referenced by path.
- *
- * NOTE: Project images (animator.png, ttt.png, web.png, collage.png) need to be
- * moved to public/images/projects/ — handled in the asset migration step.
+ * PROJECTS data lives here and is rendered at build time.
+ * ProjectCard is a 'use client' component (needs onPointerMove for spotlight
+ * effect) — importing it here is fine because Next.js only hydrates the card
+ * shells on the client; the page grid and header stay static HTML.
  */
 
 import type { Metadata } from 'next';
-import Image from 'next/image';
-/*
- * WHY we can import StopMotionLauncher directly (no dynamic({ ssr: false })):
- *   StopMotionLauncher is a 'use client' component. Next.js serializes its
- *   shell (the button markup) as a server-side placeholder — only the ref and
- *   click handler hydrate on the client. The canvas-unsafe code lives inside
- *   StopMotionStudioModal, which StopMotionLauncher loads with ssr: false via
- *   its own dynamic() call. That inner dynamic() is what gates the canvas from
- *   the server; we don't need another ssr: false at this level.
- *
- *   Contrast with ThreeScene: that component immediately runs WebGL code at
- *   module-evaluation time, so even its shell cannot be server-rendered.
- *   StopMotionLauncher renders only a <button> at the top level, which is
- *   perfectly safe to SSR.
- */
-import StopMotionLauncher from '@/components/StopMotionStudio/StopMotionLauncher';
+import { ProjectCard, type Project } from '@/components/ProjectCard';
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -47,49 +16,42 @@ export const metadata: Metadata = {
     'Enterprise implementations, product integrations, and creative experiments by Cameron Powell.',
 };
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-type Project = {
-  id: number;
-  title: string;
-  description: string;
-  imagePath?: string;    // Path relative to public/ (e.g. '/images/projects/animator.png')
-  imageAlt: string;
-  liveUrl?: string;
-  repoUrl?: string;
-  tags: readonly string[];
-  openStudio?: boolean;  // If true, renders the Stop Motion Studio launcher button
-  isPrivate?: boolean;   // If true, shows a "Private" pill instead of links
-};
-
 const PROJECTS: Project[] = [
   {
     id: 1,
     title: 'Open Source CustomGPT Chat Portal',
     description:
-      'Production-ready chat frontend with Next.js, TypeScript, Neon Postgres, and Vercel AI SDK — streaming APIs, auth, tiered rate limiting, persistent chat history, and artifact rendering. Used by AEs to demo API extensibility alongside an OpenAI + pgvector RAG POC.',
-    imagePath: '/images/projects/web.png',
+      'Production-ready chat frontend that wraps CustomGPT agents as standalone interfaces — built with Next.js, Vercel AI SDK, Neon Postgres, and Auth.js. Features token-by-token streaming, persistent chat history, tiered rate limiting, rich artifacts (text, code, spreadsheets), and voice I/O.',
+    imagePath: '/images/projects/chat-frontend.png',
     imageAlt: 'CustomGPT chat portal interface',
-    tags: ['Next.js', 'TypeScript', 'Vercel AI SDK', 'Neon', 'pgvector'],
+    tags: ['Next.js', 'Vercel AI SDK', 'Neon', 'Auth.js', 'TypeScript'],
     isPrivate: true,
   },
   {
     id: 2,
+    title: 'RAG Chat Assistant',
+    description:
+      'Full-stack RAG chatbot built with Next.js, Vercel AI SDK v6, GPT-4o-mini, and pgvector on Neon. Includes an admin dashboard for knowledge-base management, PDF ingestion, cosine-similarity retrieval, and a 10-case evaluation suite.',
+    imagePath: '/images/projects/ragchat.png',
+    imageAlt: 'RAG chat assistant interface',
+    repoUrl: 'https://github.com/bbuckwheatt/rag-cs',
+    tags: ['Next.js', 'RAG', 'pgvector', 'Vercel AI SDK', 'TypeScript'],
+  },
+  {
+    id: 3,
     title: 'CustomGPT Demo Repository',
     description:
       'Reusable demo hub built with Next.js and Vercel, enabling AEs to self-serve technical demos across 60+ engagements without engineering involvement.',
-    imagePath: '/images/projects/web.png',
+    imagePath: '/images/projects/demoportal.png',
     imageAlt: 'Demo repository hub',
     tags: ['Next.js', 'Vercel', 'TypeScript'],
     isPrivate: true,
   },
   {
-    id: 3,
+    id: 4,
     title: 'CustomGPT Support Automation Workflow',
     description:
       'RAG-driven automation pipelines to streamline support triage and responses across Zendesk, Freshdesk, Intercom, and Zapier — reducing manual workload by 120+ hours per week.',
-    imagePath: '/images/projects/web.png',
-    imageAlt: 'Automation dashboard visualization',
     tags: ['RAG', 'APIs', 'Automation', 'Python'],
     isPrivate: true,
   },
@@ -110,7 +72,7 @@ const PROJECTS: Project[] = [
     title: 'This Website',
     description:
       'A handcrafted portfolio built with Next.js App Router, featuring an ASCII art hero, a custom Tailwind v4 design system, and zero-JS server components.',
-    imagePath: '/images/projects/web.png',
+    imagePath: '/images/projects/website.png',
     imageAlt: 'Portfolio website preview',
     repoUrl: 'https://github.com/bbuckwheatt/website',
     tags: ['Next.js', 'TypeScript', 'Tailwind'],
@@ -120,8 +82,6 @@ const PROJECTS: Project[] = [
     title: 'Mars Rover Team — Robotics Software',
     description:
       "Contributed inverse-kinematics functionality for a 6-DOF robotic arm in Northeastern's Mars Rover team.",
-    imagePath: '/images/projects/ttt.png',
-    imageAlt: 'Mars rover interface mockup',
     tags: ['Python', 'Robotics', 'Kinematics'],
   },
   {
@@ -135,8 +95,6 @@ const PROJECTS: Project[] = [
     tags: ['Java', 'OOP', 'Design Patterns'],
   },
 ];
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ProjectsPage() {
   return (
@@ -156,99 +114,5 @@ export default function ProjectsPage() {
       </div>
 
     </section>
-  );
-}
-
-// ─── ProjectCard ──────────────────────────────────────────────────────────────
-
-/*
- * ProjectCard is a Server Component sub-component — defined in this file,
- * renders as part of the same static HTML output. No 'use client' needed.
- * The StopMotionLauncher inside it is the only client-side island on this page.
- */
-function ProjectCard({ project }: { project: Project }) {
-  return (
-    <article className="
-      group
-      bg-[var(--surface)] rounded-[20px] overflow-hidden
-      border border-[var(--border)]
-      shadow-[0_2px_12px_rgba(15,23,42,0.06)]
-      flex flex-col
-      transition-all duration-300
-      hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,23,42,0.12)]
-      dark:hover:shadow-[0_16px_40px_rgba(0,0,0,0.4)]
-      motion-reduce:hover:translate-y-0
-    ">
-      {/* Image with overlay on hover */}
-      {project.imagePath && (
-        <div className="relative w-full h-[200px] overflow-hidden bg-[var(--section-bg)]">
-          <Image
-            src={project.imagePath}
-            alt={project.imageAlt}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
-      )}
-
-      {/* Body */}
-      <div className="p-6 flex flex-col gap-4 flex-1">
-        <h3 className="m-0 text-[1rem] font-semibold text-[var(--text-primary)] leading-snug">{project.title}</h3>
-        <p className="m-0 text-[0.875rem] text-[var(--text-muted)] leading-relaxed">{project.description}</p>
-
-        {/* Tags */}
-        <div className="flex gap-1.5 flex-wrap">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="
-                px-2.5 py-0.5 rounded-full
-                text-[0.7rem] font-semibold
-                text-[var(--text-muted)]
-                bg-[var(--chip-bg)]
-                border border-[var(--border)]
-              "
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Links — pushed to bottom */}
-        <div className="flex gap-4 items-center flex-wrap mt-auto pt-2 border-t border-[var(--border)]">
-          {project.openStudio && <StopMotionLauncher />}
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] font-semibold text-[0.8rem] no-underline hover:opacity-70 transition-opacity duration-150 cursor-pointer"
-            >
-              View live ↗
-            </a>
-          )}
-          {project.repoUrl && (
-            <a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] font-semibold text-[0.8rem] no-underline hover:opacity-70 transition-opacity duration-150 cursor-pointer"
-            >
-              View code ↗
-            </a>
-          )}
-          {project.isPrivate && (
-            <span className="
-              px-2 py-0.5 rounded-full
-              bg-[rgba(148,163,184,0.15)] text-[var(--text-muted)]
-              text-[0.7rem] font-semibold uppercase tracking-wider
-            ">
-              Private
-            </span>
-          )}
-        </div>
-      </div>
-    </article>
   );
 }

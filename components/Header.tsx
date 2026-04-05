@@ -23,6 +23,54 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { useState, useCallback, useRef, useEffect } from 'react';
+
+const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+function useScramble(text: string) {
+  const [display, setDisplay] = useState(text);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const scramble = useCallback(() => {
+    let frame = 0;
+    const duration = text.length * 3;
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      frame++;
+      const progress = frame / duration;
+      const revealed = Math.floor(progress * text.length);
+      const next = text
+        .split('')
+        .map((char, i) => {
+          if (char === ' ') return ' ';
+          if (i < revealed) return text[i];
+          return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+        })
+        .join('');
+      setDisplay(next);
+      if (frame >= duration) {
+        clearInterval(intervalRef.current!);
+        setDisplay(text);
+      }
+    }, 30);
+  }, [text]);
+
+  useEffect(() => () => { if (intervalRef.current) clearInterval(intervalRef.current); }, []);
+
+  return { display, scramble, reset: () => setDisplay(text) };
+}
+
+function ScrambleLabel({ text, isActive }: { text: string; isActive: boolean }) {
+  const { display, scramble } = useScramble(text);
+  return (
+    <span
+      onMouseEnter={scramble}
+      style={{ color: display !== text && !isActive ? 'var(--accent)' : undefined }}
+    >
+      {display}
+    </span>
+  );
+}
 
 const NAV_LINKS = [
   { label: 'Home',     href: '/' },
@@ -89,7 +137,7 @@ export default function Header() {
                 }
               `}
             >
-              {label}
+              <ScrambleLabel text={label} isActive={isActive(href)} />
             </Link>
           ))}
         </nav>

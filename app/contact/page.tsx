@@ -10,6 +10,7 @@
  */
 
 import type { Metadata } from 'next';
+import { LampHero } from '@/components/LampHero';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -18,8 +19,11 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    // Vertically and horizontally centered card layout
-    <section className="px-8 pt-20 pb-28 flex justify-center items-start max-sm:px-6 max-sm:pt-14 max-sm:pb-20">
+    <section className="pb-28 max-sm:pb-20">
+      <LampHero />
+
+      {/* Contact card */}
+      <div className="px-8 flex justify-center items-start max-sm:px-6">
 
       <div className="
         max-w-[720px] w-full
@@ -79,6 +83,7 @@ export default function ContactPage() {
         </div>
       </div>
 
+      </div>
     </section>
   );
 }

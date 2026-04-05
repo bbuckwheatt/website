@@ -46,12 +46,22 @@ export default async function GalleryPage() {
                   src={thumbnail}
                   alt={label}
                   fill
-                  className="object-cover transition-[filter] duration-400 group-hover:brightness-50"
+                  className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
                 />
               ) : (
                 <div className="absolute inset-0 bg-[var(--surface-strong)]" />
               )}
+              {/* Progressive blur overlay — bottom half blurs on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+                style={{
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  maskImage: 'linear-gradient(to top, black 0%, black 35%, transparent 65%)',
+                  WebkitMaskImage: 'linear-gradient(to top, black 0%, black 35%, transparent 65%)',
+                }}
+              />
               {/* Label overlay — always present, slides up on hover */}
               <div className="absolute inset-x-0 bottom-0 flex flex-col justify-end p-5 pointer-events-none">
                 <p

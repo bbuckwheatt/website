@@ -49,19 +49,20 @@ export default async function AlbumPage({ params }: { params: Promise<{ slug: st
       {photos.length === 0 ? (
         <p className="text-[var(--text-muted)]">No photos yet.</p>
       ) : (
-        <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
+        <div style={{ columns: '280px 3', gap: '8px' }}>
           {photos.map(({ url, alt }, i) => (
-            <Image
-              key={url}
-              src={url}
-              alt={alt}
-              width={800}
-              height={600}
-              style={{ height: 'auto', width: '100%' }}
-              className="rounded-[14px] shadow-[var(--shadow-soft)] object-contain"
-              sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
-              priority={i === 0}
-            />
+            <div key={url} style={{ breakInside: 'avoid', marginBottom: '8px' }}>
+              <Image
+                src={url}
+                alt={alt}
+                width={800}
+                height={600}
+                style={{ height: 'auto', width: '100%', display: 'block' }}
+                className="rounded-[6px]"
+                sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                priority={i === 0}
+              />
+            </div>
           ))}
         </div>
       )}

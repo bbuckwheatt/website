@@ -5,12 +5,15 @@ import { getAlbumPhotos } from '@/lib/blob';
 import { notFound } from 'next/navigation';
 
 const ALBUM_META: Record<string, { label: string; description: string }> = {
-  iceland:  { label: 'Iceland',          description: 'Photos from Iceland — northern lights, landscapes, and more.' },
-  ireland:  { label: 'Ireland',          description: 'Photos from Ireland.' },
-  london:   { label: 'London',           description: 'Photos from London.' },
-  italy:    { label: 'Italy',            description: 'Photos from Italy.' },
-  food:     { label: 'Food',             description: 'Food photography.' },
-  meatball: { label: 'Meatball the Cat', description: 'Photos of Meatball.' },
+  iceland:       { label: 'Iceland',          description: 'Photos from Iceland — northern lights, landscapes, and more.' },
+  ireland:       { label: 'Ireland',          description: 'Photos from Ireland.' },
+  london:        { label: 'London',           description: 'Photos from London.' },
+  italy:         { label: 'Italy',            description: 'Photos from Italy.' },
+  spain:         { label: 'Spain',            description: 'Photos from Spain.' },
+  massachusetts: { label: 'Massachusetts',    description: 'Photos from Massachusetts.' },
+  food:          { label: 'Food',             description: 'Food photography.' },
+  meatball:      { label: 'Meatball the Cat', description: 'Photos of Meatball.' },
+  tony:          { label: 'Tony',             description: 'Photos of Tony.' },
 };
 
 export async function generateStaticParams() {

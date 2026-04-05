@@ -9,12 +9,15 @@ export const metadata: Metadata = {
 };
 
 const ALBUM_SLUGS = [
-  { slug: 'iceland',  label: 'Iceland' },
-  { slug: 'ireland',  label: 'Ireland' },
-  { slug: 'london',   label: 'London' },
-  { slug: 'italy',    label: 'Italy' },
-  { slug: 'food',     label: 'Food' },
-  { slug: 'meatball', label: 'Meatball the Cat' },
+  { slug: 'iceland',       label: 'Iceland' },
+  { slug: 'ireland',       label: 'Ireland' },
+  { slug: 'london',        label: 'London' },
+  { slug: 'italy',         label: 'Italy' },
+  { slug: 'spain',         label: 'Spain' },
+  { slug: 'massachusetts', label: 'Massachusetts' },
+  { slug: 'food',          label: 'Food' },
+  { slug: 'meatball',      label: 'Meatball the Cat' },
+  { slug: 'tony',          label: 'Tony' },
 ] as const;
 
 export default async function GalleryPage() {

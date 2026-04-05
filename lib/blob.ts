@@ -11,7 +11,7 @@ function slugToAlt(url: string): string {
 
 export const getAlbumPhotos = unstable_cache(
   async (album: string): Promise<{ url: string; alt: string }[]> => {
-    const { blobs } = await list({ prefix: `gallery/${album}/` });
+    const { blobs } = await list({ prefix: `gallery/${album}/`, token: process.env.images_READ_WRITE_TOKEN });
     return blobs
       .filter(b => !b.pathname.endsWith('/'))
       .sort((a, b) => a.pathname.localeCompare(b.pathname))
@@ -23,7 +23,7 @@ export const getAlbumPhotos = unstable_cache(
 
 export const getThumbnail = unstable_cache(
   async (album: string): Promise<string | null> => {
-    const { blobs } = await list({ prefix: `gallery/thumbnails/${album}` });
+    const { blobs } = await list({ prefix: `gallery/thumbnails/${album}`, token: process.env.images_READ_WRITE_TOKEN });
     return blobs[0]?.url ?? null;
   },
   ['album-thumbnail'],

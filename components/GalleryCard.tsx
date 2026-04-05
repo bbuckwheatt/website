@@ -34,30 +34,46 @@ export function GalleryCard({ slug, label, thumbnail }: Props) {
           <div className="absolute inset-0 bg-[var(--surface-strong)]" />
         )}
 
+        {/* Blur — animates on hover (desktop), always visible on mobile */}
         <ProgressiveBlur
-          className="pointer-events-none absolute bottom-0 left-0 h-[60%] w-full"
+          className="pointer-events-none absolute bottom-0 left-0 h-[60%] w-full sm:opacity-0"
           blurIntensity={0.4}
           animate={hovered ? 'visible' : 'hidden'}
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
+          style={{ ['--tw-opacity' as string]: undefined }}
         />
 
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 pointer-events-none"
-          animate={hovered ? 'visible' : 'hidden'}
-          variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
-        >
-          <div className="flex flex-col px-5 py-4 gap-1">
+        {/* Label — always visible at 70% on mobile, animates on hover on desktop */}
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+          {/* Mobile: always shown */}
+          <div className="flex flex-col px-5 py-4 gap-1 sm:hidden">
             <p
               className="text-white font-semibold text-[1.05rem] tracking-wide"
-              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}
             >
               {label}
             </p>
             <div className="h-px bg-white/50 w-full" />
           </div>
-        </motion.div>
+          {/* Desktop: hover-animated */}
+          <motion.div
+            className="hidden sm:block"
+            animate={hovered ? 'visible' : 'hidden'}
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+          >
+            <div className="flex flex-col px-5 py-4 gap-1">
+              <p
+                className="text-white font-semibold text-[1.05rem] tracking-wide"
+                style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}
+              >
+                {label}
+              </p>
+              <div className="h-px bg-white/50 w-full" />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </Link>
   );

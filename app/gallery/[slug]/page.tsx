@@ -49,17 +49,16 @@ export default async function AlbumPage({ params }: { params: Promise<{ slug: st
       {photos.length === 0 ? (
         <p className="text-[var(--text-muted)]">No photos yet.</p>
       ) : (
-        <div style={{ columns: '2', gap: '10px' }}>
+        <div className="max-sm:[column-count:1] [column-count:2]" style={{ gap: '10px' }}>
           {photos.map(({ url, alt }, i) => (
-            <div key={url} style={{ breakInside: 'avoid', marginBottom: '8px' }}>
+            <div key={url} style={{ breakInside: 'avoid', marginBottom: '10px' }}>
               <Image
                 src={url}
                 alt={alt}
                 width={800}
                 height={600}
                 style={{ height: 'auto', width: '100%', display: 'block' }}
-                className="rounded-[6px]"
-                sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, 50vw"
                 priority={i === 0}
               />
             </div>

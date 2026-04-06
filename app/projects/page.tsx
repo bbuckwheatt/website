@@ -21,7 +21,7 @@ const PROJECTS: Project[] = [
     id: 1,
     title: 'Open Source CustomGPT Chat Portal',
     description:
-      'Production-ready chat frontend that wraps CustomGPT agents as standalone interfaces — built with Next.js, Vercel AI SDK, Neon Postgres, and Auth.js. Features token-by-token streaming, persistent chat history, tiered rate limiting, rich artifacts (text, code, spreadsheets), and voice I/O.',
+      'Production-ready chat frontend that wraps CustomGPT agents as standalone interfaces. Built with Next.js, Vercel AI SDK, Neon Postgres, and Auth.js. Features token-by-token streaming, persistent chat history, tiered rate limiting, rich artifacts (text, code, spreadsheets), and voice I/O.',
     imagePath: '/images/projects/chat-frontend.png',
     imageAlt: 'CustomGPT chat portal interface',
     liveUrl: 'https://customgpt-custom-frontend.vercel.app/',
@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
     id: 4,
     title: 'CustomGPT Support Automation Workflow',
     description:
-      'RAG-driven automation pipelines to streamline support triage and responses across Zendesk, Freshdesk, Intercom, and Zapier — reducing manual workload by 120+ hours per week.',
+      'RAG-driven automation pipelines to streamline support triage and responses across Zendesk, Freshdesk, Intercom, and Zapier, reducing manual workload by 120+ hours per week.',
     tags: ['RAG', 'APIs', 'Automation', 'Python'],
     isPrivate: true,
   },
@@ -82,7 +82,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: 7,
-    title: 'Mars Rover Team — Robotics Software',
+    title: 'Mars Rover Team: Robotics Software',
     description:
       "Contributed inverse-kinematics functionality for a 6-DOF robotic arm in Northeastern's Mars Rover team.",
     tags: ['Python', 'Robotics', 'Kinematics'],

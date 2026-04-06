@@ -11,7 +11,7 @@ import AsciiPortrait from '@/components/AsciiPortrait';
 import { ScrambleName } from '@/components/ScrambleName';
 
 export const metadata: Metadata = {
-  title: 'Cameron Powell — Lead Solutions Engineer',
+  title: 'Cameron Powell | Lead Solutions Engineer',
   description:
     'Lead Solutions Engineer based in Boston. Building technical partnerships, enterprise implementations, and AI automation.',
 };
@@ -59,7 +59,7 @@ export default function HomePage() {
 
           <p className="text-[1.05rem] text-[var(--text-muted)] leading-[1.75] max-w-[500px] max-sm:text-[0.95rem]">
             I build high-trust technical partnerships that turn complex customer goals into
-            shipped solutions — across product, engineering, and sales.
+            shipped solutions across product, engineering, and sales.
           </p>
 
           {/* CTAs */}
@@ -119,7 +119,7 @@ export default function HomePage() {
             What I focus on
           </h2>
           <p className="text-[var(--text-muted)] leading-[1.7] max-w-[600px]">
-            Bridging product and engineering with business outcomes — translating requirements,
+            Bridging product and engineering with business outcomes by translating requirements,
             designing systems, and shipping production-ready solutions for enterprise teams.
           </p>
           <div className="flex justify-center gap-2 flex-wrap">

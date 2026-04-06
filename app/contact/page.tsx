@@ -14,7 +14,7 @@ import { LampHero } from '@/components/LampHero';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: "Let's connect — reach out via email, GitHub, LinkedIn, or check out my resume.",
+  description: "Let's connect. Reach out via email, GitHub, LinkedIn, or check out my resume.",
 };
 
 export default function ContactPage() {

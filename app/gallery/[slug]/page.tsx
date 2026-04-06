@@ -5,7 +5,7 @@ import { getAlbumPhotos } from '@/lib/blob';
 import { notFound } from 'next/navigation';
 
 const ALBUM_META: Record<string, { label: string; description: string }> = {
-  iceland:       { label: 'Iceland',          description: 'Photos from Iceland — northern lights, landscapes, and more.' },
+  iceland:       { label: 'Iceland',          description: 'Photos from Iceland: northern lights, landscapes, and more.' },
   ireland:       { label: 'Ireland',          description: 'Photos from Ireland.' },
   london:        { label: 'London',           description: 'Photos from London.' },
   italy:         { label: 'Italy',            description: 'Photos from Italy.' },

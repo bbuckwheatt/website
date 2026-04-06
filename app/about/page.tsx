@@ -18,7 +18,7 @@ export default function AboutPage() {
         <h1 className="text-[2.8rem] mb-4 tracking-[-0.02em] max-sm:text-[2.2rem]">About</h1>
         <p className="text-[1.1rem] text-[var(--text-muted)] leading-[1.7] max-w-[620px]">
           Lead Solutions Engineer at CustomGPT.ai, based in Boston. I translate ambitious customer
-          goals into shipped enterprise solutions — across product, engineering, and sales.
+          goals into shipped enterprise solutions across product, engineering, and sales.
         </p>
       </header>
 
@@ -30,8 +30,8 @@ export default function AboutPage() {
           <div>
             <h2 className="text-[1.1rem] font-semibold text-[var(--text-primary)] mb-3 mt-0">What I do</h2>
             <p className="text-[var(--text-muted)] leading-[1.8] m-0">
-              I created and scaled the Solutions Engineering function at CustomGPT.ai from scratch —
-              lifting demo-to-close rates by 15%, driving 90% PoC-to-annual conversion across 20+
+              I created and scaled the Solutions Engineering function at CustomGPT.ai from scratch.
+              That meant lifting demo-to-close rates by 15%, driving 90% PoC-to-annual conversion across 20+
               enterprise clients, and leading a team of SEs, forward-deployed engineers, and data
               scientists that has influenced $1M+ in sales revenue. My work spans solution
               architecture, security reviews (SSO/SAML, vendor questionnaires), cross-platform data
@@ -43,7 +43,7 @@ export default function AboutPage() {
             <h2 className="text-[1.1rem] font-semibold text-[var(--text-primary)] mb-3 mt-0">Technical focus</h2>
             <ul className="m-0 pl-0 list-none flex flex-col gap-2">
               {[
-                'AI/RAG pipelines — LangChain, Vercel AI SDK, Pinecone, pgvector',
+                'AI/RAG pipelines: LangChain, Vercel AI SDK, Pinecone, pgvector',
                 'Full-stack: Next.js, React, TypeScript, Node.js',
                 'Enterprise integrations: SSO/SAML, REST APIs, Zapier, HubSpot',
                 'Data consolidation: BigQuery, Neon, MySQL, Retool dashboards',
